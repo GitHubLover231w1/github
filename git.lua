@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.20 --
+-- SCRIPT VER 7.40 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -59,6 +59,7 @@ local waitblugori = 0
 local cantp = 0
 local kelvinchecker = 0
 local jesterwait = 0
+local requiredwait = 0
 
 
 
@@ -369,8 +370,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	end
 	local function Kill(table1,table2,method,cframe1)
 		if method == "Magu" then
-
-
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -383,7 +382,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					repeatkill = 0
 					if waitkelvin == 0 then 
 						waitkelvin = 1
-						cframe22 = CFrame.new(npchumrt.CFrame.X + 20,npchumrt.CFrame.Y,npchumrt.CFrame.Z)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -395,14 +396,46 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
 						wait(0.5)
 						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
+						wait(0.5)
+						geppo1()
+						cframe22 = CFrame.new(npchumrt.CFrame.X + 25,npchumrt.CFrame.Y,npchumrt.CFrame.Z + 25)
 					end
 				else 
 					repeatkill = 1
 				end
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				magucd = 0
 				if magucd == 0 then
+					magucd = 8
 					if npc.Name == "Elo The Bunny" then
 						humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 12,cframe22.Z)
 					else 
@@ -434,28 +467,12 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					}
 					geppo1()
 					game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-					geppo1()
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					geppo1()
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					wait(0.5)
-					humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
-					geppo1()
+				elseif magucd > 0 then 
+					magucd -= 1 
+					wait(0.25)
+					geppo()
+					local cframe = cframe22
+					createbox(cframe,30 * higher1)
 			end
 			end
 		elseif method == "Clicks" then 
@@ -909,7 +926,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					end
 				end
 				equip()
-				wait(0.25)
+				wait(0.1)
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -932,7 +949,8 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					["aircombo"] = "Air"
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
-				wait(0.1)
+			
+				bomudash()
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -955,7 +973,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					["aircombo"] = "Air"
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
-				wait(0.1)
+				bomudash()
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -978,7 +996,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					["aircombo"] = "Air"
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
-				wait(0.1)
+				bomudash()
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1001,7 +1019,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 					["aircombo"] = "Air"
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
-				wait(0.1)
+				bomudash()
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1025,7 +1043,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				}
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(fun1)
 				bomudash()
-				wait(0.1)
 				geppo()
 			end
 		elseif method == "MaguNpc" then 
@@ -1037,7 +1054,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 			local npc = table1[1]
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			bomudash()
 			if magucd1 == 0 then 
 				magucd1 = 40
 				geppo()
@@ -1050,7 +1066,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * higher1,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1104,7 +1120,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * higher1,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1197,7 +1213,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * higher1,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1362,14 +1378,17 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
 								print("BossType!")
 								bosstype = 1
+								waitonce12 = requiredwait
 							elseif npc.Name == "Mini Bunny" then 
 								npc:Destroy()
 								killdecide(killthink,{},{},cframe1)
+								waitonce12 = requiredwait
 							elseif npc.Name == "Kramprus" then 
 								cframe22 = npchumrt.CFrame
 								bosstype = 1
+								waitonce12 = requiredwait
 							elseif npc.Name == "Blugori" then 
-
+								waitonce12 = requiredwait
 								if waitblugori == 0 then 
 									waitblugori = 1
 									local cframe = CFrame.new(cframe22.X,cframe22.Y + 30 * waitwafel,cframe22.Z)
@@ -1416,42 +1435,19 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 							elseif npc.Name == "Demon Jester" then 
 								bosstype = 1
 								jesterwait = 1
+								waitonce12 = requiredwait
 							end
-							
-								if waitonce12 == 0 then 
-									waitonce12 = 1
+							local function waitforkill()
+								if waitonce12 < requiredwait then 
+									waitonce12 += 1
 									local cframe = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
 									createbox(cframe,0)
-									wait(0.5)
 									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
-									humrt.CFrame = CFrame.new(cframe22.X,cframe22.Y + 30 * higher1,cframe22.Z)
-									wait(0.5)
-									geppo()
+									wait(0.25)
+									waitforkill()
 								end
+							end
+							waitforkill()
 							bomudash()
 
 							if bosstype == 1 and normalmode == 0 then
@@ -2138,7 +2134,6 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cframe22 =CFrame.new(5866,7,-10227)
 	teleportkill(cframe22)
 	waitformoment()
-
 	wait(15)
 	normalmode = 1
 	wait(2)
@@ -2205,12 +2200,14 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 		stackleg()
 		stackleg()
 	end
+	requiredwait = 10
 	cframe22 = CFrame.new(2943.087890625, 2129.49365234375, -13818.97265625) -- 1.1
 	teleportE(cframe22)
 	cframe22 = CFrame.new(2954.192626953125, 2075.445556640625, -13954.1328125) -- 1
 	teleportkill(cframe22)
 	waitformoment()
 	waitformoment32 = 2
+	requiredwait = 12
 	cframe22 = CFrame.new(2952.61328125, 2136.442626953125, -15376.771484375) -- 2.1
 	teleportE(cframe22)
 	repeatkill = 1
@@ -2297,9 +2294,10 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	teleport(cframe22)
 	keyboardE()
 	waitformoment32 = 1.25
-	higher1 = 1.25
+	higher1 = 2
 	tweeningyet = 1
-	waitwafel = 1.25
+	waitwafel = 2
+	requiredwait = 24
 	geppo1()
 	cframe22 = CFrame.new(10022.1044921875, 1612.52490234375, -19234.732421875) -- 25
 	teleportkill(cframe22)
@@ -2341,6 +2339,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	higher1 = 2
 	tweeningyet = 0
 	waitwafel = 2
+	
 	geppo1()
 	keyboardE()
 	cframe22 = CFrame.new(9952.3251953125, 1644.553466796875, -21947.376953125) -- 34
@@ -2352,9 +2351,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	waitformoment()
 	geppo1()
 	waitformoment32 = 1.25
-	higher1 = 1.25
+	higher1 = 2
 	tweeningyet = 1
-	waitwafel = 1.25
+	waitwafel = 2
 	cframe22 = CFrame.new(9974.77734375, 1657.553466796875, -22141.06640625) -- 35
 	teleport(cframe22)
 	cframe22 = CFrame.new(9400.0712890625, 572.8726806640625, -27929.95703125) -- 36
