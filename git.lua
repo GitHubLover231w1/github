@@ -2204,8 +2204,9 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	workspace.Gravity= 0
 	magnitudenumber = 120
 	waitformoment32 = 4
-	higher1 = 1
-	waitwafel = 1
+	higher1 = 0.9
+	waitwafel = 0.9
+	magmahigher = 0.9
 	wait(2)
 	if normalmode == 1 then
 
@@ -2233,7 +2234,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 	cantp = 1
 	waitformoment32 = 1
 	magnitudenumber = 800
-    stagesecond = 1
+    stagesecond = 0
 	cframe22 = CFrame.new(3194.72216796875, 2380.4306640625, -20271.548828125) -- 3
 	teleportkill(cframe22)
 	waitformoment()
