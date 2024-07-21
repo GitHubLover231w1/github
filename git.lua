@@ -1,5 +1,5 @@
 -- INFO RIGHT HERE --
--- SCRIPT VER 7.70 --
+-- SCRIPT VER 7.75 --
 -- PLACE IDS:  
 --LOBBY      - 1730877806
 --SECOND SEA - 7465136166             
@@ -1379,7 +1379,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 						local humanoid = character:WaitForChild("Humanoid")
 						local humrt = character:WaitForChild("HumanoidRootPart")
 						local function tweens()
-							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kelvin, The Nutcracker" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
+							if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Krampus, The Ravager" or npc.Name == "Ba'al" or npc.Name == "Jailer Han" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Sphinx" or npc.Name == "Impel Down Elite High Guard" then
 								print("BossType!")
 								bosstype = 1
 								waitonce12 = requiredwait
