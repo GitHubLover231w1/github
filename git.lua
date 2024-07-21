@@ -44,7 +44,7 @@ local killedyet = 0
 local speed = 45 
 local keypickupped = 0
 local tweeningyet = 0
-local higher1 = 0.75
+local higher1 = 0.7
 local waitformoment32 = 1
 local repeatkill = 0
 local waitonce = 0
@@ -54,13 +54,14 @@ local magucd1 = 0
 local waitonce12 = 0
 local weaponname = "BlackLeg"
 local waitkelvin = 0
-local waitwafel = 1
+local waitwafel = 0.7
 local waitblugori = 0
 local cantp = 0
 local kelvinchecker = 0
 local jesterwait = 0
 local requiredwait = 0
 local stagesecond = 0
+local magmahigher = 0.7
 
 
 
@@ -1067,7 +1068,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1121,7 +1122,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
@@ -1214,7 +1215,7 @@ elseif game.PlaceId == 11424731604 then-- IMPEL FARM
 				local npc = table1[1]
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 30 * magmahigher,npchumrt.CFrame.Z)
 				local args = {
 					[1] = false,
 					[2] = weaponname
