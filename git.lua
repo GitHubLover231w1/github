@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.11-----
+-----SCRIPT-VERSION-1.15-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -26,6 +26,8 @@ local humrt = character:WaitForChild("HumanoidRootPart")
 local tweenservice = game:GetService("TweenService")
 local replicatedstorage = game:GetService("ReplicatedStorage")
 local virtualinputservice = game:GetService("VirtualInputManager")
+local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
+falldmg.Enabled = false
 -----                   -----
 local speed = 45
 local tweeningyet = 1
