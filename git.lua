@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.10-----
+-----SCRIPT-VERSION-1.11-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -519,17 +519,17 @@ local function spotchecker()
 		else 
 			checkerz = 1
 		end
-		
+
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			 
+
 		else
 			if waitingcount >= waitingspot then 
-				
+
 			else
-			waitingcount = 0 
-			workspace.Gravity = 192.6
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
-	end
+				waitingcount = 0 
+				workspace.Gravity = 192.6
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 5,cframe.Z)
+			end
 		end
 	end
 	checks()
@@ -647,9 +647,9 @@ local function spotchecker1()
 		else 
 			checkerz = 1
 		end
-		wait(2)
+		wait(2.5)
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			if onspotcounter == 2 then 
+			if onspotcounter == 3 then 
 
 			else 
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
@@ -707,6 +707,7 @@ local function teleportkill(cframe1)
 			bomucd = 0
 			bomucd1 = 0
 			krampuscheck = 0
+			onspotcounter = 0
 			local args = {
 				[1] = false,
 				[2] = weaponname
@@ -742,6 +743,7 @@ local function teleport(cframe1)
 			createbox(height)
 			spotchecker1()
 			teleportedyet = 1
+			onspotcounter = 0
 		end
 	end
 	tween:Play()
@@ -812,6 +814,7 @@ local function teleportE(cframe1)
 			keyboardE()
 			keyboardE()
 			teleportedyet = 1
+			onspotcounter = 0
 		end
 	end
 	tween:Play()
