@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.16-----
+-----SCRIPT-VERSION-1.17-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -6,7 +6,7 @@ local idlobby = 1730877806
 local privatecode = "HwHb4rQpyZ"
 local autoexec = 1
 -----                   -----
-local changingspeed = 3500
+local changingspeed = 2000
 local webhookchest = "https://discord.com/api/webhooks/1265511849475051654/V5tBV58sjbivoHEzpJF3dn8YNxdCOSygvqT4kRb2kD9sh8YipTsiX8a4w30tsbaXC-Wt"
 local webhookcomplete = "https://discord.com/api/webhooks/1265511797222281258/ley14MNWR9BjCCeNj1QNLbII1D27bLUEOVyF0Qyfvb1xN2cfXvpci0ljoPH8IrAHTlUj"
 -----                   ----- 
