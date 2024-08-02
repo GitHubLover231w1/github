@@ -127,16 +127,16 @@ local function geppo()
 	end
 end
 local function geppo1()
-	
-	
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local fun1 = 6.28
-		local fun2 = "dash"
-		game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
-	
+
+
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	local fun1 = 6.28
+	local fun2 = "dash"
+	game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
+
 end
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
@@ -660,7 +660,7 @@ local function spotchecker1()
 			checkerz = 1
 		end
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			
+
 		else
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 			onspotcounter = 0
@@ -782,6 +782,10 @@ local function keyboardE()
 	wait(0.25)
 	local keycode = Enum.KeyCode.E
 	local virtualinputservice = game:GetService("VirtualInputManager")
+	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+	wait(0.2)
+	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+	wait(0.3)
 	virtualinputservice:SendKeyEvent(true,keycode,false,nil)
 	wait(1.5)
 	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
@@ -913,6 +917,7 @@ local function eat()
 	end
 	equip()
 	wait(2.5)
+	local virtualinputservice = game:GetService("VirtualInputManager")
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
 	wait(0.1)
 	virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
