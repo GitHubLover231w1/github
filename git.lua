@@ -1,9 +1,9 @@
------SCRIPT-VERSION-1.20-----
+-----SCRIPT-VERSION-1.21-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
 -----                   -----
-local privatecode = "HwHb4rQpyZ"
+local privatecode = "XYfq9PoGj6"
 local autoexec = 1
 -----                   -----
 local changingspeed = 1250
