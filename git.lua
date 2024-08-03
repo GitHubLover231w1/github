@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.21-----
+-----SCRIPT-VERSION-1.22-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -918,9 +918,9 @@ local function eat()
 	equip()
 	wait(2.5)
 	local virtualinputservice = game:GetService("VirtualInputManager")
-	virtualinputservice:SendMouseButtonEvent(450, 300, 0,true,nil,1)
+	virtualinputservice:SendMouseButtonEvent(35, 45, 0,true,nil,1)
 	wait(0.1)
-	virtualinputservice:SendMouseButtonEvent(450, 300, 0,false,nil,1)
+	virtualinputservice:SendMouseButtonEvent(35, 45, 0,false,nil,1)
 	wait(13)
 end
 local function learnblackleg()
@@ -1146,7 +1146,8 @@ local function startcheckerBuddha()
 end
 local function dropping()
 	local function teleportbuddha()
-		if droppingornot == 0 then 
+		if droppingornot == 0 then
+			workspace.Gravity = 0
 			startcheckerBuddha()
 			cframe = CFrame.new(20000, 1.836013793945312, 0)
 			teleportESpecial(cframe)
@@ -1341,7 +1342,18 @@ local function startchecker0()
 	end
 	checks()
 end
-
+local function checksforbuddha()
+	local buddha = workspace:FindFirstChild("Buddha")
+	if buddha then 
+		local buddhahandler = buddha:FindFirstChild("preHandler")
+		if buddhahandler then 
+			cframe = CFrame.new(buddhahandler.Position.X,buddhahandler.Position.Y,buddhahandler.Position.Z)
+			teleportESpecial(cframe)
+			wait(2.5)
+			checksforbuddha()
+		end
+	end
+end
 
 
 
@@ -1403,7 +1415,9 @@ local function startScript()
 				cframe = CFrame.new(20000, 1.836013793945312, 0)
 				teleportESpecial(cframe)
 				spotcheckerSpecial(teleportESpecial)
-				wait(1)
+				wait(2.5)
+				checksforbuddha()
+				wait(2.5)
 				eat()
 				wait(2.5)
 				statsup()
