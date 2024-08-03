@@ -1345,7 +1345,7 @@ end
 local function checksforbuddha()
 	local buddha = workspace:FindFirstChild("Buddha")
 	if buddha then 
-		local buddhahandler = buddha:FindFirstChild("preHandler")
+		local buddhahandler = buddha:FindFirstChild("preHandle")
 		if buddhahandler then 
 			cframe = CFrame.new(buddhahandler.Position.X,buddhahandler.Position.Y,buddhahandler.Position.Z)
 			teleportESpecial(cframe)
