@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.22-----
+-----SCRIPT-VERSION-1.225-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
