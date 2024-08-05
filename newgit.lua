@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.38-----
+-----SCRIPT-VERSION-1.39-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -1369,8 +1369,8 @@ local function tweenforposition(cframe1)
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 500,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 500,humrt.CFrame.Z)
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 200,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 200,humrt.CFrame.Z)
 		wait(1)
 		local speedtime = (humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1402,8 +1402,8 @@ local function tweenforE(cframe1)
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
-	local newcframe = CFrame.new(cframe.X,cframe.Y + 500,cframe.Z)
-	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 500,humrt.CFrame.Z)
+	local newcframe = CFrame.new(cframe.X,cframe.Y + 200,cframe.Z)
+	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 200,humrt.CFrame.Z)
 		wait(1)
 		local speedtime = (humrt.Position - newcframe.Position).magnitude
 		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
@@ -1506,9 +1506,9 @@ local function prepareforlevel()
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 	local humanoid = character:WaitForChild("Humanoid")
 	local humrt = character:WaitForChild("HumanoidRootPart")
-	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+500,humrt.CFrame.Z)
+	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+200,humrt.CFrame.Z)
 	wait(1)
-	tweenforposition(CFrame.new(fishmancore.CFrame.X,fishmancore.CFrame.Y+500,fishmancore.CFrame.Z))
+	tweenforposition(CFrame.new(fishmancore.CFrame.X,fishmancore.CFrame.Y+200,fishmancore.CFrame.Z))
 	humrt.CFrame = CFrame.new(fishmancore.CFrame.X,fishmancore.CFrame.Y,fishmancore.CFrame.Z)
 	wait(8)
 	tweenforposition(CFrame.new(7977.11181640625, -2152.83203125, -17066.6171875))
