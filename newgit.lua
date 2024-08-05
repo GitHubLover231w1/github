@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.35-----
+-----SCRIPT-VERSION-1.36-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -437,13 +437,18 @@ local function kill(method,npc)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		local npchum = npc:FindFirstChild("Humanoid")
-		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			if npc.Animation.AnimationId == "rbxassetid://8201580596" then
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 		local args = {
 			[1] = npchumrt.CFrame
 		}
 		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-		wait(2)
+			wait(1.15)
+		else 
+			print("Kelvin shield attack!!!")
+			wait(1.5)
+		end
 	end
 end
 local function killdecide(killthink)
