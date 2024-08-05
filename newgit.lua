@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.37-----
+-----SCRIPT-VERSION-1.38-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -437,17 +437,18 @@ local function kill(method,npc)
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		local npchum = npc:FindFirstChild("Humanoid")
-			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			if npc.Animation.AnimationId == "rbxassetid://8201580596" then
-		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
-		local args = {
-			[1] = npchumrt.CFrame
-		}
-		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-			wait(1.15)
+		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+		local stunnedyet = npc:FindFirstChild("Stun")
+		if stunnedyet then
+			print("Stunned!")
+			wait(0.15)
 		else 
-			print("Kelvin shield attack!!!")
-			wait(1.5)
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
+			local args = {
+				[1] = npchumrt.CFrame
+			}
+			game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+			wait(1.15)
 		end
 	end
 end
@@ -2048,6 +2049,16 @@ local function startScript()
 	elseif game.PlaceId == idlevel then 
 		wait(15*autoexec)
 		local falldmg = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name):WaitForChild("FallDamage")
+		task.spawn(function()
+			repeat
+				local keycode = Enum.KeyCode.Nine
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+				wait(600)
+			until true == false
+		end)
 		falldmg.Enabled = false
 		startlevelchecker()
 	elseif game.PlaceId == idimpel then
