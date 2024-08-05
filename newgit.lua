@@ -3,7 +3,7 @@ local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
 -----                   -----
-local privatecode = "fv65p55tFB"
+local privatecode = "0lulaQ6Aed"
 local autoexec = 1
 -----                   -----
 local changingspeed = 1250
