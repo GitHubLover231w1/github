@@ -1,7 +1,8 @@
------SCRIPT-VERSION-1.30-----
+-----SCRIPT-VERSION-1.35-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
+local idlevel = 3978370137
 -----                   -----
 local privatecode = "0lulaQ6Aed"
 local autoexec = 1
@@ -111,6 +112,7 @@ local onspot = 0
 local onspotcounter = 0
 local onspotcounter0 = 0
 local waitonceforkelvin = 0
+local teleportedyet2 = 0
 -----                   -----
 local function geppo()
 	if djcount < 5 then
@@ -1353,15 +1355,668 @@ local function checksforbuddha()
 		end
 	end
 end
+local function tweenforposition(cframe1)
+	    cframe = cframe1
+		workspace.Gravity = 0
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
+		wait(1)
+		local speedtime = (humrt.Position - newcframe.Position).magnitude
+		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+
+		tween:Play()
+		local function tweens()
+			if teleportedyet2 == 0 then 
+				
+				wait(0.01)
+				tweens()
+			else 
+				teleportedyet2 = 0
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
+				workspace.Gravity = 192.6
+			end
+		end
+		local function tweencomplete()
+			teleportedyet2 = 1
+		end
+		tween.Completed:Connect(tweencomplete)
+		tweens()
+end
+local function tweenforE(cframe1)
+	    cframe = cframe1
+		workspace.Gravity = 0
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local newcframe = CFrame.new(cframe.X,cframe.Y + 1000,cframe.Z)
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 1000,humrt.CFrame.Z)
+		wait(1)
+		local speedtime = (humrt.Position - newcframe.Position).magnitude
+		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+
+		tween:Play()
+		local function tweens()
+			if teleportedyet2 == 0 then 
+
+				wait(0.01)
+				tweens()
+			else 
+				teleportedyet2 = 0
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+3,cframe.Z)
+			workspace.Gravity = 192.6
+			keyboardE()
+			
+			end
+		end
+		local function tweencomplete()
+			teleportedyet2 = 1
+		end
+		tween.Completed:Connect(tweencomplete)
+		tweens()
+end
+local function prepareforlevel()
+	task.spawn(function()
+		repeat 
+			wait(0.8)
+			local args = {
+				[1] = 0.51,
+				[2] = "dash"
+			}
+
+			game:GetService("ReplicatedStorage").Events.takestam:FireServer(unpack(args))
+
+		until true == false
+	end)
+	local function clear()
+		local flood1 = workspace.Islands["Town of Beginnings"].ImportantBuildings:GetChildren()
+		local flood2 = workspace.NPCs:GetChildren()
+		local flood3 = workspace.BuyableItems:GetChildren()
+		for i,flooda in flood1 do 
+			flooda:Destroy()
+		end
+		for i,floodb in flood2 do 
+			floodb:Destroy()
+		end
+		for i,floodc in flood3 do 
+			if floodc.Name == "Rifle" then
+
+			else 
+				floodc:Destroy()
+			end
+		end
+	end
+	local function lootchests()
+		local peli = game:GetService("ReplicatedStorage")["Stats"..name].Stats.Peli
+		if peli.Value < 301 then
+		local chest = workspace.Env:WaitForChild("Chest"):WaitForChild("TopBase")
+		tweenforE(CFrame.new(chest.CFrame.X,chest.CFrame.Y + 2,chest.CFrame.Z))
+		wait(2)
+			lootchests()
+		end
+	end
+	local function buyrifle()
+		local rifle = workspace.BuyableItems.Rifle.ShopPart
+		tweenforE(CFrame.new(rifle.CFrame.X,rifle.CFrame.Y + 2,rifle.CFrame.Z))
+		local args = {
+			[1] = workspace.BuyableItems.Rifle,
+			[2] = 1
+		}
+
+		game:GetService("ReplicatedStorage").Events.Shop:InvokeServer(unpack(args))
+	end
+	task.spawn(function()
+		game:GetService("Players").LocalPlayer.PlayerGui.Tutoiral.Script.RemoteEvent:FireServer()
+	end)
+    wait(1)
+	lootchests()
+	wait(1)
+	clear()
+	wait(1)
+	buyrifle()
+	wait(1)
+	local args = {
+		[1] = "equip",
+		[2] = "Rifle"
+	}
+
+	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
+    wait(1)
+	tweenforposition(CFrame.new(5682.85693359375, 35, -16542.01953125))
+	workspace.Gravity = 192.6
+	wait(1)
+	local fishmancore = workspace.Fishman.Part
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y+1000,humrt.CFrame.Z)
+	wait(1)
+	tweenforposition(CFrame.new(fishmancore.CFrame.X,fishmancore.CFrame.Y+1000,fishmancore.CFrame.Z))
+	humrt.CFrame = CFrame.new(fishmancore.CFrame.X,fishmancore.CFrame.Y,fishmancore.CFrame.Z)
+	wait(8)
+	tweenforposition(CFrame.new(7977.11181640625, -2152.83203125, -17066.6171875))
+	wait(1)
+	local args = {
+		[1] = nil,
+		[2] = workspace.NPCs:WaitForChild("Robo")
+	}
+
+	game:GetService("ReplicatedStorage").Events.SetSpawn:FireServer(unpack(args))
+	wait(1)
+	game:GetService("TeleportService"):Teleport(1730877806, player)
+	wait(500)
+end
+local function stackleg()
+	wait(4.2)
+
+	local args = {
+		[1] = "Concasser",
+		[2] = {
+			["char"] = game:GetService("Players").LocalPlayer.Character,
+			["t"] = 1,
+			["en2"] = Vector3.new(-3793.98828125, 20.927303314208984, -5618.5791015625),
+			["x0"] = Vector3.new(-3898.217529296875, 49.7537841796875, -5647.49462890625),
+			["v0"] = Vector3.new(11.118408203125, 97.0250015258789, 3.08447265625),
+			["nt"] = 0,
+			["g"] = Vector3.new(0, -196.1999969482422, 0)
+		}
+	}
+
+	game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+end
+local function thelevelfarm()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	local players = game:GetService("Players"):GetChildren()
+	local lurenumber = #players - 1
+	local cframequest = CFrame.new(7730.916015625, -2175.83203125, -17215.19921875)
+	local cframespot = CFrame.new(7526.3642578125, -2076.832275390625, -17390.5078125 - lurenumber*5)
+	local cframemountain = CFrame.new(-15472.8193359375, 805.8187866210938, -9058.8662109375)
+	local cframeshrine = CFrame.new(-12185.525390625, 0, -18545.505859375)
+	local cframerobo = CFrame.new(5930.56298828125, 6.024040222167969, -9470.2841796875)
+	local function firefishman()
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local head = workspace.NPCs:WaitForChild("Fishman Karate User"):WaitForChild("Head")
+		local args = {
+			[1] = "fire",
+			[2] = {
+				["Start"] = humrt.CFrame,
+				["Gun"] = "Rifle",
+				["joe"] = "true",
+				["Position"] = Vector3.new(head.Position.X,head.Position.Y + 0.575,head.Position.Z)
+			}
+		}
+
+		game:GetService("ReplicatedStorage").Events.CIcklcon:FireServer(unpack(args))
+		task.wait(0.00001)
+		local args = {
+			[1] = "reload",
+			[2] = {
+				["Gun"] = "Rifle"
+			}
+		}
+		game:GetService("ReplicatedStorage").Events.CIcklcon.gunFunctions:InvokeServer(unpack(args))
+	end
+	local function takequest()
+		local args = {
+			[1] = {
+				[1] = "npcChat",
+				[2] = true
+			}
+		}
+
+		game:GetService("ReplicatedStorage").Events.Quest:InvokeServer(unpack(args))
+		wait(0.2)
+		local args = {
+			[1] = {
+				[1] = "takequest",
+				[2] = "Help becky"
+			}
+		}
+
+		game:GetService("ReplicatedStorage").Events.Quest:InvokeServer(unpack(args))
+		wait(0.2)
+	end
+	local weaponname = "Rifle"
+	local function equiprifle()
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local bar1 = player.PlayerGui.BackpackGui.Hotbar.One:GetChildren()
+		for i,item in bar1 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.One
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar2 = player.PlayerGui.BackpackGui.Hotbar.Two:GetChildren()
+		for i,item in bar2 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Two
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar3 = player.PlayerGui.BackpackGui.Hotbar.Three:GetChildren()
+		for i,item in bar3 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Three
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar4 = player.PlayerGui.BackpackGui.Hotbar.Four:GetChildren()
+		for i,item in bar4 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Four
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar5 = player.PlayerGui.BackpackGui.Hotbar.Five:GetChildren()
+		for i,item in bar5 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Five
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar6 = player.PlayerGui.BackpackGui.Hotbar.Six:GetChildren()
+		for i,item in bar6 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Six
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar7 = player.PlayerGui.BackpackGui.Hotbar.Seven:GetChildren()
+		for i,item in bar7 do 
+			if item.Name == weaponname then  
+				local keycode = Enum.KeyCode.Seven
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar8 = player.PlayerGui.BackpackGui.Hotbar.Eight:GetChildren()
+		for i,item in bar8 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Eight
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+		local bar9 = player.PlayerGui.BackpackGui.Hotbar.Nine:GetChildren()
+		for i,item in bar9 do 
+			if item.Name == weaponname then 
+				local keycode = Enum.KeyCode.Nine
+				local virtualinputservice = game:GetService("VirtualInputManager")
+				virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+				wait(0.1)
+				virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+
+			end
+		end
+	end
+	equiprifle()
+	local function inputAlt()
+		wait(2)
+		local keycode = Enum.KeyCode.LeftAlt
+		local virtualinputservice = game:GetService("VirtualInputManager")
+		virtualinputservice:SendKeyEvent(true,keycode,false,nil)
+		wait(6)
+		virtualinputservice:SendKeyEvent(false,keycode, false, nil)
+	end
+	local function teleportspot()
+		tweenforposition(cframespot)
+	end
+	local function teleportquest()
+		tweenforposition(cframequest)
+	end
+	local function spotcheckerspot()
+		local cframe = cframespot
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local startx = cframe.X
+		local starty = cframe.Y 
+		local startz = cframe.Z
+		local numberrangex =NumberRange.new(startx - 4,startx + 4)
+		local numberrangey =NumberRange.new(starty - 4,starty + 4)
+		local numberrangez =NumberRange.new(startz - 4,startz + 4)
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		local checkerx = 0 
+		local checkery = 0
+		local checkerz = 0
+		local function checks() 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humrt = character.HumanoidRootPart
+			local currentx = humrt.CFrame.X
+			local currenty = humrt.CFrame.Y
+			local currentz = humrt.CFrame.Z
+			if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+			else 
+				checkerx = 1
+			end
+			if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+			else 
+				checkery = 1
+			end
+			if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+			else 
+				checkerz = 1
+			end
+
+			if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+				workspace.Gravity = 192.6
+				firefishman()
+			else
+				teleportspot()
+				workspace.Gravity = 192.6
+				firefishman()
+			end
+		end
+		checks()
+	end
+	local function spotcheckerquest()
+		local cframe = cframequest
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local startx = cframe.X
+		local starty = cframe.Y 
+		local startz = cframe.Z
+		local numberrangex =NumberRange.new(startx - 4,startx + 4)
+		local numberrangey =NumberRange.new(starty - 4,starty + 4)
+		local numberrangez =NumberRange.new(startz - 4,startz + 4)
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		local checkerx = 0 
+		local checkery = 0
+		local checkerz = 0
+		local function checks() 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humrt = character.HumanoidRootPart
+			local currentx = humrt.CFrame.X
+			local currenty = humrt.CFrame.Y
+			local currentz = humrt.CFrame.Z
+			if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+			else 
+				checkerx = 1
+			end
+			if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+			else 
+				checkery = 1
+			end
+			if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+			else 
+				checkerz = 1
+			end
+
+			if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+				workspace.Gravity = 192.6
+				wait(0.2)
+				takequest()
+			else
+				teleportquest()
+				workspace.Gravity = 192.6
+				wait(0.2)
+				takequest()
+			end
+		end
+		checks()
+	end
+	local function preparation()
+		local args = {
+			[1] = "BlackLeg"
+		}
+
+		game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+		wait(1)
+		local fun1 = "FightingStyleMastery"
+		local fun2 = nil
+		local fun3 = 30
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		wait(1)
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		stackleg()
+		wait(1)
+		workspace.Gravity = 0
+		humrt.CFrame = CFrame.new(humrt.CFrame.X,200,humrt.CFrame.Z)
+	end
+	local function beginfarm()
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local level = game:GetService("ReplicatedStorage")["Stats"..name].Stats.Level
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		local quest = game:GetService("ReplicatedStorage")["Stats"..name].Quest.CurrentQuest
+		if level.Value == 575 then 
+			preparation()
+			tweenforposition(cframeshrine)
+			inputAlt()
+			wait(2)
+			tweenforposition(cframemountain)
+			wait(700)
+		elseif quest.Value == "Help becky" or level.Value < 190 then 
+			spotcheckerspot()
+			wait(0.01)
+		else
+			spotcheckerquest()
+			wait(0.01)
+		end
+		beginfarm()
+	end
+	beginfarm()
+end
+local function startlevelchecker()
+	local cframe = CFrame.new(992.4584350585938, 5.074999809265137, 1162.34765625)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 100,startx + 100)
+	local numberrangey =NumberRange.new(starty - 100,starty + 100)
+	local numberrangez =NumberRange.new(startz - 100,startz + 100)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+prepareforlevel()
+		else
+			thelevelfarm()
+		end
+	end
+	checks()
+end
+local function startimpelchecker()
+	local cframe = CFrame.new(5930.56298828125, 6.024040222167969, -9470.2841796875)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 300,startx + 300)
+	local numberrangey =NumberRange.new(starty - 300,starty + 300)
+	local numberrangez =NumberRange.new(startz - 300,startz + 300)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+			
+		else
+			local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
+			falldmg.Enabled = false
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			stackleg()
+			tweenforposition(cframe)
+			wait(1)
+			local args = {
+				[1] = nil,
+				[2] = workspace.NPCs:WaitForChild("Robo")
+			}
+
+			game:GetService("ReplicatedStorage").Events.SetSpawn:FireServer(unpack(args))
+			wait(1)
+			game:GetService("TeleportService"):Teleport(1730877806, player)
+			wait(500)
+		end
+	end
+	checks()
+end
 
 
 
 
 
-
-
-
-
+-----                   -----
 local function startScript()
 	if game.PlaceId == idlobby then 
         task.spawn(function()
@@ -1378,15 +2033,19 @@ local function startScript()
 
 	elseif game.PlaceId == idmain then
 		wait(15*autoexec)
+		startimpelchecker()
 		cframe = CFrame.new(5866,7,-10227)
 		teleportESpecial(cframe)
 		print("DOne")
 		local random = math.random(50,100)
 		wait(random)
 		game:GetService("TeleportService"):Teleport(1730877806, player)
-	elseif game.PlaceId == idimpel then
-		local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
+	elseif game.PlaceId == idlevel then 
+		wait(15*autoexec)
+		local falldmg = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name):WaitForChild("FallDamage")
 		falldmg.Enabled = false
+		startlevelchecker()
+	elseif game.PlaceId == idimpel then
 		speed = changingspeed
 		task.spawn(function()
 			local player = game.Players.LocalPlayer
@@ -1423,6 +2082,8 @@ local function startScript()
 			end
 		end)
 		wait(20 * autoexec)
+		local falldmg = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name):WaitForChild("FallDamage")
+		falldmg.Enabled = false
 		task.spawn(function()
 			repeat
 				wait(4)
