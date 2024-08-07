@@ -1084,43 +1084,6 @@ local function killdecide(killthink)
 			local humanoid = character:WaitForChild("Humanoid")
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			inform = character:GetAttribute("InForm")
-			if inform == false then
-				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1780 then
-					task.spawn(function()	
-						local player = game.Players.LocalPlayer
-						local name = player.Name
-						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-						local humanoid = character:WaitForChild("Humanoid")
-						local humrt = character:WaitForChild("HumanoidRootPart")
-						workspace.Gravity = 0
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-
-						local args = {
-							[1] = false,
-							[2] = "BlackLeg"
-						}
-
-						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-						wait(1)
-						local args = {
-							[1] = "Buddha Transformation",
-							[2] = {
-								[1] = true,
-								[2] = humrt.CFrame
-							}
-						}
-
-						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-						buddhaarrived = true
-						method = "NpcBar"
-						wait(4)
-						print("Not Enough Damage!")
-
-					end)
-					wait(6)
-				end
-			end
 			if inform == true then
 				
 					local buddhadamage = character:GetAttribute("buddhaDamage")
@@ -1229,24 +1192,6 @@ local function killthink()
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 10,cframe.Z)
-	end
-	if waitingcount == 4 then 
-		workspace.Gravity = 192.6
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		humrt.CFrame = CFrame.new(cframe.X,cframe.Y,cframe.Z)
-	end
-	if waitingcount == 8 then 
-		workspace.Gravity = 192.6
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		humrt.CFrame = CFrame.new(cframe.X,cframe.Y - 10,cframe.Z)
 	end
 	local player = game.Players.LocalPlayer
 	local name = player.Name
@@ -1414,7 +1359,8 @@ local function teleportkill(cframe1)
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 	local humanoid = character:WaitForChild("Humanoid")
 	local humrt = character:WaitForChild("HumanoidRootPart")
-	humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
+	humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
+	workspace.Gravity = 192.6
 	killthink()
 	tweeningyet = 1
 	killedyet = 0
