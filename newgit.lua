@@ -84,7 +84,7 @@ local tableofspots = {
 	[47] = CFrame.new(9634.5390625, 512.7200317382812, -28434.779296875), -- 41.1
 	[48] = CFrame.new(9640.421875, 596.3516235351562, -27910.451171875), -- 42.1
 	[49] = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375), -- 42
-	[50] = CFrame.new(6396.14208984375, 657.998046875, -27927.330078125), -- end
+	[50] = CFrame.new(6396.14208984375, 645.998046875, -27927.330078125), -- end
 }
 local cframe = CFrame.new(0,0,0)
 local startbegin = 0
@@ -434,17 +434,6 @@ local function kill(method,npc)
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
-			task.spawn(function()
-				local buddhaDamage = character:GetAttribute("buddhaDamage") 
-				if buddhaDamage < 1500 then 
-
-				else 
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
-			end)
 			wait(1.2)
 		else 
 			local args = {
