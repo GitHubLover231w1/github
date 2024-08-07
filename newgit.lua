@@ -1232,12 +1232,21 @@ local function killthink()
 	end
 	if waitingcount == 4 then 
 		workspace.Gravity = 192.6
-		local baseparts = workspace:GetDescendants()
-		for i,basepart in baseparts do 
-			if basepart:IsA("BasePart") then 
-basepart.CanCollide = false
-			end
-		end
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		humrt.CFrame = CFrame.new(cframe.X,cframe.Y,cframe.Z)
+	end
+	if waitingcount == 8 then 
+		workspace.Gravity = 192.6
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		humrt.CFrame = CFrame.new(cframe.X,cframe.Y - 10,cframe.Z)
 	end
 	local player = game.Players.LocalPlayer
 	local name = player.Name
