@@ -1378,7 +1378,7 @@ local function teleport(cframe1)
 			buddhaarrived = true
 			wait(4)
 		end)
-		wait(3)
+		wait(5)
 	end
 	cframe = cframe1
 	geppo1()
@@ -1448,7 +1448,7 @@ local function teleportE(cframe1)
 				buddhaarrived = true
 				wait(4)
 			end)
-			wait(3)
+			wait(5)
 		end
 	cframe = cframe1
 	geppo1()
