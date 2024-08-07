@@ -1261,7 +1261,6 @@ local function killthink()
 		else
 			wait(0.125)
 			waitingcount += 1
-			spotchecker()
 			killthink()
 		end
 	end
