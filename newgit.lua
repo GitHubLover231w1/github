@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.39-----
+-----SCRIPT-VERSION-1.42-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -81,9 +81,9 @@ local tableofspots = {
 	[44] = CFrame.new(10604.146484375, 490.7202453613281, -28430.986328125), -- 39
 	[45] = CFrame.new(10265.3876953125, 460.71990966796875, -28450.2890625), -- 40
 	[46] = CFrame.new(9735.857421875, 512.72021484375, -28480.580078125), -- 41
-	[47] = CFrame.new(9634.5390625, 512.7200317382812, -28434.779296875), -- 42
+	[47] = CFrame.new(9634.5390625, 512.7200317382812, -28434.779296875), -- 41.1
 	[48] = CFrame.new(9640.421875, 596.3516235351562, -27910.451171875), -- 42.1
-	[49] = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375), -- 43
+	[49] = CFrame.new(9635.1240234375, 458.86572265625, -27552.8359375), -- 42
 	[50] = CFrame.new(6396.14208984375, 657.998046875, -27927.330078125), -- end
 }
 local cframe = CFrame.new(0,0,0)
@@ -113,12 +113,44 @@ local onspotcounter = 0
 local onspotcounter0 = 0
 local waitonceforkelvin = 0
 local teleportedyet2 = 0
+local buddhacount = 0
+local buddhaarrived = false
+local djextra = 0
+local inform = nil
+local buddhaDamage = nil
 -----                   -----
 local function geppo()
-	if djcount < 5 then
-		djcount += 1
-	else
-		djcount = 0
+	task.spawn(function()
+		if djcount < 5 then
+			djcount += 1
+		else
+			djcount = 0
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local fun1 = 6.28
+			local fun2 = "dash"
+			game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
+		end
+	end)
+end
+local function geppoextra()
+	task.spawn(function()
+		
+			djextra = 0
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local fun1 = 6.28
+			local fun2 = "dash"
+			game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
+		
+	end)
+end
+local function geppo1()
+	task.spawn(function()
 		local player = game.Players.LocalPlayer
 		local name = player.Name
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -126,19 +158,7 @@ local function geppo()
 		local fun1 = 6.28
 		local fun2 = "dash"
 		game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
-	end
-end
-local function geppo1()
-
-
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humrt = character:WaitForChild("HumanoidRootPart")
-	local fun1 = 6.28
-	local fun2 = "dash"
-	game:GetService("ReplicatedStorage").Events.takestam:FireServer(fun1,fun2)
-
+	end)
 end
 local function createbox(height2)
 	local cframenew = CFrame.new(cframe.X,cframe.Y + (height2),cframe.Z)
@@ -274,21 +294,172 @@ end
 local function kill(method,npc)
 	if method == nil then 
 	elseif method == "Npc" then
-		workspace.Gravity = 0
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local npchum = npc:FindFirstChild("Humanoid")
-		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 40,cframe.Z)
-		local args = {
-			[1] = npchumrt.CFrame
-		}
-		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-		wait(1.15)
+		if buddhacount == 0 then 
+			local args = {
+				[1] = false,
+				[2] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount = 14
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+			task.spawn(function()
+				local buddhaDamage = character:GetAttribute("buddhaDamage") 
+				if buddhaDamage < 1500 then 
+					
+				else 
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
+			wait(1.2)		
+		elseif buddhacount == 12 then
+			local args = {
+				[1] = false,
+				[2] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			geppo1()
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
+			wait(0.6)
+			geppo1()
+			task.spawn(function()
+				local args = {
+					[1] = "Palm Strike",
+					[2] = {
+						["cf"] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				local args = {
+					[1] = CFrame.new(humrt.Position,npchumrt.Position)
+				}
+
+				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
+			end)
+			wait(0.6)
+		elseif buddhacount == 8 then
+			local args = {
+				[1] = false,
+				[2] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			geppo1()
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+			wait(0.6)
+			geppo1()
+			task.spawn(function()
+				local args = {
+					[1] = "Judgement Impact",
+					[2] = {
+						["cf"] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
+			end)
+			wait(0.6)
+		elseif buddhacount < 8 then
+			local args = {
+				[1] = false,
+				[2] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+			task.spawn(function()
+				local buddhaDamage = character:GetAttribute("buddhaDamage") 
+				if buddhaDamage < 1500 then 
+
+				else 
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
+			wait(1.2)
+		else 
+			local args = {
+				[1] = false,
+				[2] = "BlackLeg"
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+			task.spawn(function()
+				local buddhaDamage = character:GetAttribute("buddhaDamage") 
+				if buddhaDamage < 1500 then 
+
+				else 
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
+			wait(1.2)		
+		end
 	elseif method == "Boss" then
+		local args = {
+			[1] = false,
+			[2] = "BlackLeg"
+		}
+
+		game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 		workspace.Gravity = 0
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -298,11 +469,13 @@ local function kill(method,npc)
 		local npchum = npc:FindFirstChild("Humanoid")
 		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
-		local args = {
-			[1] = npchumrt.CFrame
-		}
-		game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-		wait(1.15)
+		task.spawn(function()
+			local args = {
+				[1] = npchumrt.CFrame
+			}
+			game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+		end)
+		wait(1.2)
 	elseif method == "Clicks" then
 		local function equip()
 			local player = game.Players.LocalPlayer
@@ -420,16 +593,24 @@ local function kill(method,npc)
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		local npchum = npc:FindFirstChild("Humanoid")
 		local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-		local args = {
-			[1] = {
-				["cf"] = npchumrt.CFrame,
-				["cf2"] = npchumrt.CFrame
+		task.spawn(function()
+			local args = {
+				[1] = {
+					["cf"] = npchumrt.CFrame,
+					["cf2"] = npchumrt.CFrame
+				}
 			}
-		}
 
-		game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
+			game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
+		end)
 		wait(2.5)
 	elseif method == "NpcK" then
+		local args = {
+			[1] = false,
+			[2] = "BlackLeg"
+		}
+
+		game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 		workspace.Gravity = 0
 		local player = game.Players.LocalPlayer
 		local name = player.Name
@@ -449,7 +630,224 @@ local function kill(method,npc)
 			}
 			game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			wait(1.15)
+
 		end
+	elseif method == "NpcBar" then
+		if inform == true then
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			geppoextra()
+			local args = {
+				[1] = true,
+				[2] = "BlackLeg",
+				[3] = true
+			}
+
+			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			task.spawn(function()
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+			end)
+			wait(0.15)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 1,
+						[4] = "Ground",
+						[5] = true,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.Dash,
+						[7] = 0.9833333492279053,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+			wait(0.15)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 2,
+						[4] = "Ground",
+						[5] = false,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.Slash2,
+						[7] = 1,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+			wait(0.15)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 3,
+						[4] = "Ground",
+						[5] = false,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.Slash3,
+						[7] = 1,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+			wait(0.15)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 4,
+						[4] = "Ground",
+						[5] = false,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.GroundSlash4,
+						[7] = 1,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))	
+			end)
+			wait(0.15)
+		else
+			if buddhacount == 0 then 
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount = 14
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 550,cframe.Z)
+			task.spawn(function()
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+			end)
+			wait(1.2)		
+			elseif buddhacount == 12 then
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			geppo1()
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 25,npchumrt.CFrame.Z)
+			wait(0.6)
+			geppo1()
+			task.spawn(function()
+				local args = {
+					[1] = "Palm Strike",
+					[2] = {
+						["cf"] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				local args = {
+					[1] = CFrame.new(humrt.Position,npchumrt.Position)
+				}
+
+				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
+			end)
+			wait(0.6)
+			elseif buddhacount == 8 then 
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			geppo1()
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 25,npchumrt.CFrame.Z)
+			wait(0.6)
+			geppo1()
+			task.spawn(function()
+				local args = {
+					[1] = "Judgement Impact",
+					[2] = {
+						["cf"] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
+			end)
+			wait(0.6)
+			else
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			workspace.Gravity = 0
+			buddhacount -= 1
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 550,cframe.Z)
+			task.spawn(function()
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+			end)
+				wait(1.2)	
+	
+			end
+	      end
 	end
 end
 local function killdecide(killthink)
@@ -463,35 +861,206 @@ local function killdecide(killthink)
 
 	else 
 		local method = nil
-		if npc.Name == "Cupid Queen" or npc.Name == "Love Empress" or npc.Name == "Elo The Bunny" or npc.Name == "Santa" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Kramprus" or npc.Name == "Blugori"  then
+		if npc.Name == "Love Empress" then
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
 			method = "Boss"
-			higher = 350
+			higher = 650
+		
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform = character:GetAttribute("InForm")
+			if inform == true then
+				task.spawn(function()
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local args = {
+						[1] = "Buddha Transformation",
+						[2] = {
+							[1] =false,
+							[2] = humrt.CFrame
+						}
+					}
+
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					buddhaarrived = true
+					wait(4)
+				end)
+				wait(0.5)
+				end
+			
+		elseif npc.Name == "Head Jailer of Impel Down" then 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			method = "Boss"
+			higher = 300
+			
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform = character:GetAttribute("InForm")
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
+		
 		elseif npc.Name == "Vera" then
 			method = "Clicks"
-		elseif npc.Name == "Kramprus" then 
-			method = "Boss"
-			krampuscheck = 1.5
-			higher = 450
-		elseif npc.Name == "Demon Jester" or npc.Name == "Ba'al" then 
-			method = "Boss"
-			higher = 100
-		elseif npc.Name == "Warden of Impel Down, Vera" then 
-			method = "Boss"
-			higher = 225
-			geppo()
-			local args = {
-				[1] = true,
-				[2] = weaponname,
-				[3] = true
-			}
-
-			game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-		elseif npc.Name == "Kelvin, The Nutcracker" then 
+		elseif npc.Name == "Kelvin, The Nutcracker" then
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
 			method = "NpcK"
 			higher = 350
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+		
+				inform = character:GetAttribute("InForm")
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
+		
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" then 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			method = "NpcBar"
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform = character:GetAttribute("InForm")
+			if inform == false then
+				local buddhadamage = character:GetAttribute("buddhaDamage")
+				if buddhadamage > 1500 then
+				task.spawn(function()	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					workspace.Gravity = 0
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 40,cframe.Z)
+						
+						local args = {
+							[1] = false,
+							[2] = "BlackLeg"
+						}
+
+						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+					wait(1)
+					local args = {
+						[1] = "Buddha Transformation",
+						[2] = {
+							[1] = true,
+							[2] = humrt.CFrame
+						}
+					}
+
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					buddhaarrived = true
+							wait(4)
+					print("Not Enough Damage!")
+					
+				end)
+					wait(5.5)
+				end
+				end
 		else 
 			method = "Npc"
-		end
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+		
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform = character:GetAttribute("InForm")
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
+			end
+	
+		
 		kill(method,npc)
 		killthink()
 	end
@@ -505,7 +1074,7 @@ local function spotchecker()
 	local starty = cframe.Y 
 	local startz = cframe.Z
 	local numberrangex =NumberRange.new(startx - 5.5,startx + 5.5)
-	local numberrangey =NumberRange.new(starty - 15,starty + 15)
+	local numberrangey =NumberRange.new(starty - 40,starty + 40)
 	local numberrangez =NumberRange.new(startz - 5.5,startz + 5.5)
 	local currentx = humrt.CFrame.X
 	local currenty = humrt.CFrame.Y
@@ -633,7 +1202,7 @@ local function spotchecker1()
 	local starty = cframe.Y 
 	local startz = cframe.Z
 	local numberrangex =NumberRange.new(startx - 5.5,startx + 5.5)
-	local numberrangey =NumberRange.new(starty - 5.5,starty + 5.5)
+	local numberrangey =NumberRange.new(starty - 40,starty + 40)
 	local numberrangez =NumberRange.new(startz - 5.5,startz + 5.5)
 	local currentx = humrt.CFrame.X
 	local currenty = humrt.CFrame.Y
@@ -756,6 +1325,33 @@ local function teleportkill(cframe1)
 
 end
 local function teleport(cframe1)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	inform =character:GetAttribute("InForm")
+	if inform == true then
+		task.spawn(function()
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local args = {
+				[1] = "Buddha Transformation",
+				[2] = {
+					[1] = false,
+					[2] = humrt.CFrame
+				}
+			}
+
+			game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+			buddhaarrived = true
+			wait(4)
+		end)
+		wait(3)
+	end
 	cframe = cframe1
 	geppo1()
 	workspace.Gravity = 0
@@ -799,6 +1395,33 @@ local function keyboardE()
 	virtualinputservice:SendKeyEvent(false,keycode, false, nil)
 end
 local function teleportE(cframe1)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	inform =character:GetAttribute("InForm")
+		if inform == true then
+			task.spawn(function()
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local args = {
+					[1] = "Buddha Transformation",
+					[2] = {
+						[1] = false,
+						[2] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				buddhaarrived = true
+				wait(4)
+			end)
+			wait(3)
+		end
 	cframe = cframe1
 	geppo1()
 	workspace.Gravity = 0
@@ -944,9 +1567,17 @@ local function learnblackleg()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function statsup()
+	local fun1 = "Defense"
+	local fun2 = nil
+	local fun3 = 100
+	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	local fun1 = "Stamina"
+	local fun2 = nil
+	local fun3 = 100
+	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
-	local fun3 = valuefruit
+	local fun3 = valuefruit - 200
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function teleportESpecial(cframe1)
@@ -1362,72 +1993,72 @@ local function checksforbuddha()
 	end
 end
 local function tweenforposition(cframe1)
-	    cframe = cframe1
-		workspace.Gravity = 0
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
-		local newcframe = CFrame.new(cframe.X,cframe.Y + 200,cframe.Z)
-		humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 200,humrt.CFrame.Z)
-		wait(1)
-		local speedtime = (humrt.Position - newcframe.Position).magnitude
-		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
-
-		tween:Play()
-		local function tweens()
-			if teleportedyet2 == 0 then 
-				
-				wait(0.01)
-				tweens()
-			else 
-				teleportedyet2 = 0
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
-				workspace.Gravity = 192.6
-			end
-		end
-		local function tweencomplete()
-			teleportedyet2 = 1
-		end
-		tween.Completed:Connect(tweencomplete)
-		tweens()
-end
-local function tweenforE(cframe1)
-	    cframe = cframe1
-		workspace.Gravity = 0
-		local player = game.Players.LocalPlayer
-		local name = player.Name
-		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-		local humanoid = character:WaitForChild("Humanoid")
-		local humrt = character:WaitForChild("HumanoidRootPart")
+	cframe = cframe1
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
 	local newcframe = CFrame.new(cframe.X,cframe.Y + 200,cframe.Z)
 	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 200,humrt.CFrame.Z)
-		wait(1)
-		local speedtime = (humrt.Position - newcframe.Position).magnitude
-		local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
-		local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+	wait(1)
+	local speedtime = (humrt.Position - newcframe.Position).magnitude
+	local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
 
-		tween:Play()
-		local function tweens()
-			if teleportedyet2 == 0 then 
+	tween:Play()
+	local function tweens()
+		if teleportedyet2 == 0 then 
 
-				wait(0.01)
-				tweens()
-			else 
-				teleportedyet2 = 0
+			wait(0.01)
+			tweens()
+		else 
+			teleportedyet2 = 0
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
+			workspace.Gravity = 192.6
+		end
+	end
+	local function tweencomplete()
+		teleportedyet2 = 1
+	end
+	tween.Completed:Connect(tweencomplete)
+	tweens()
+end
+local function tweenforE(cframe1)
+	cframe = cframe1
+	workspace.Gravity = 0
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	local newcframe = CFrame.new(cframe.X,cframe.Y + 200,cframe.Z)
+	humrt.CFrame = CFrame.new(humrt.CFrame.X,humrt.CFrame.Y + 200,humrt.CFrame.Z)
+	wait(1)
+	local speedtime = (humrt.Position - newcframe.Position).magnitude
+	local tinfo = TweenInfo.new(speedtime/speed,Enum.EasingStyle.Linear,Enum.EasingDirection.In)
+	local tween = tweenservice:Create(humrt,tinfo,{CFrame = newcframe})
+
+	tween:Play()
+	local function tweens()
+		if teleportedyet2 == 0 then 
+
+			wait(0.01)
+			tweens()
+		else 
+			teleportedyet2 = 0
 			humrt.CFrame = CFrame.new(cframe.X,cframe.Y+3,cframe.Z)
 			workspace.Gravity = 192.6
 			keyboardE()
-			
-			end
+
 		end
-		local function tweencomplete()
-			teleportedyet2 = 1
-		end
-		tween.Completed:Connect(tweencomplete)
-		tweens()
+	end
+	local function tweencomplete()
+		teleportedyet2 = 1
+	end
+	tween.Completed:Connect(tweencomplete)
+	tweens()
 end
 local function prepareforlevel()
 	task.spawn(function()
@@ -1463,9 +2094,9 @@ local function prepareforlevel()
 	local function lootchests()
 		local peli = game:GetService("ReplicatedStorage")["Stats"..name].Stats.Peli
 		if peli.Value < 301 then
-		local chest = workspace.Env:WaitForChild("Chest"):WaitForChild("TopBase")
-		tweenforE(CFrame.new(chest.CFrame.X,chest.CFrame.Y + 2,chest.CFrame.Z))
-		wait(2)
+			local chest = workspace.Env:WaitForChild("Chest"):WaitForChild("TopBase")
+			tweenforE(CFrame.new(chest.CFrame.X,chest.CFrame.Y + 2,chest.CFrame.Z))
+			wait(2)
 			lootchests()
 		end
 	end
@@ -1482,7 +2113,7 @@ local function prepareforlevel()
 	task.spawn(function()
 		game:GetService("Players").LocalPlayer.PlayerGui.Tutoiral.Script.RemoteEvent:FireServer()
 	end)
-    wait(1)
+	wait(1)
 	lootchests()
 	wait(1)
 	clear()
@@ -1495,7 +2126,7 @@ local function prepareforlevel()
 	}
 
 	game:GetService("ReplicatedStorage").Events.Tools:InvokeServer(unpack(args))
-    wait(1)
+	wait(1)
 	tweenforposition(CFrame.new(5682.85693359375, 35, -16542.01953125))
 	workspace.Gravity = 192.6
 	wait(1)
@@ -1937,7 +2568,7 @@ local function startlevelchecker()
 			checkerz = 1
 		end
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-prepareforlevel()
+			prepareforlevel()
 		else
 			thelevelfarm()
 		end
@@ -1989,7 +2620,7 @@ local function startimpelchecker()
 			checkerz = 1
 		end
 		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
-			
+
 		else
 			local falldmg = workspace.PlayerCharacters[name]:WaitForChild("FallDamage")
 			falldmg.Enabled = false
@@ -2025,11 +2656,11 @@ end
 -----                   -----
 local function startScript()
 	if game.PlaceId == idlobby then 
-        task.spawn(function()
-		local fun1 = privatecode
-		local fun2 = {
-			[1] = true
-		}
+		task.spawn(function()
+			local fun1 = privatecode
+			local fun2 = {
+				[1] = true
+			}
 			replicatedstorage.Events.reserved:InvokeServer(fun1)
 		end)
 		print(1)
@@ -2230,6 +2861,15 @@ local function startScript()
 				wait(2.5)
 				cframe = CFrame.new(2950,2075,-13466)
 				teleportESpecial(cframe)
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				character:SetAttribute("InForm",false)
+				character:SetAttribute("buddhaDamage",0)
+				inform = character:GetAttribute("InForm")
+				buddhaDamage = character:GetAttribute("buddhaDamage")
 				functionlauncer()
 			elseif tablecount == 4 then
 				height1 = 45
@@ -2238,18 +2878,21 @@ local function startScript()
 				wait(15)
 				magnitudenumber = 50000
 				functionlauncer()
-			elseif tablecount == 10 or tablecount == 18 or tablecount == 19 or tablecount == 3 then
+			elseif tablecount == 10 or tablecount == 18 or tablecount == 19 or tablecount == 3 or tablecount == 1 then
 				teleportE(tableofspots[tablecount])
 				tablecount += 1
 				functionlauncer()
-			elseif tablecount == 14 or tablecount == 28 or tablecount == 40 then 
+			elseif tablecount == 14 then 
 				teleport(tableofspots[tablecount])
 				tablecount += 1 
 				keyboardE()
 				wait(20)
 				functionlauncer()
-			elseif tablecount == 48 then 
+			elseif tablecount == 48 then
 				teleportE(tableofspots[tablecount])
+				tablecount += 1
+				functionlauncer()
+			elseif tablecount == 47 then
 				tablecount += 1
 				functionlauncer()
 			elseif tablecount == 49 then 
@@ -2358,6 +3001,18 @@ local function startScript()
 				teleport(tableofspots[50])
 			elseif tablecount == 50 then
 				teleport(tableofspots[tablecount])
+			elseif tablecount == 28 then
+				teleport(tableofspots[tablecount])
+				tablecount += 1 
+				keyboardE()
+				wait(20)
+				functionlauncer()
+			elseif tablecount == 40 then
+				teleport(tableofspots[tablecount])
+				tablecount += 1 
+				keyboardE()
+				wait(20)
+				functionlauncer()
 			else 
 				height1 = 45
 				teleportkill(tableofspots[tablecount])
