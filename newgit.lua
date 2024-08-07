@@ -299,6 +299,12 @@ end
 local function kill(method,npc)
 	if method == nil then 
 	elseif method == "Npc" then
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
 		if inform == true then
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -670,6 +676,12 @@ local function kill(method,npc)
 			wait(1.2)
 		end
 	elseif method == "NpcBar" then
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
 		if inform == true then
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -1361,6 +1373,12 @@ local function spotcheckerSpecial(tp)
 	checks()
 end
 local function teleportkill(cframe1)
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humanoid = character:WaitForChild("Humanoid")
+	local humrt = character:WaitForChild("HumanoidRootPart")
+	inform =character:GetAttribute("InForm")
 	if inform == true then
 		task.spawn(function()
 			local player = game.Players.LocalPlayer
@@ -2959,6 +2977,12 @@ local function startScript()
 				height1 = 45
 				teleportkill(tableofspots[tablecount])
 				tablecount += 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				inform =character:GetAttribute("InForm")
 				if inform == true then
 					task.spawn(function()
 						local player = game.Players.LocalPlayer
