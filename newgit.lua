@@ -2987,7 +2987,7 @@ local function startScript()
 				wait(1)
 				tablecount += 1
 				functionlauncer()
-			elseif tablecount == 47 or tablecount == 39 then
+			elseif tablecount == 47 then
 				tablecount += 1
 				functionlauncer()
 			elseif tablecount == 49 then 
