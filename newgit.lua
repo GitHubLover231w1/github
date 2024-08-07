@@ -1235,7 +1235,7 @@ local function killthink()
 					local magnitude = (magnitudecframe1.Position - magnitudecframe2.Position).magnitude
 					if magnitude <= magnitudenumber then 
 						findednpc = 1
-						waitingcount = waitingspot
+						waitingcount = 39
 						currentnpc = npc
 					else 
 
@@ -2797,6 +2797,7 @@ local function startScript()
 	elseif game.PlaceId == idimpel then
 		speed = changingspeed
 		task.spawn(function()
+			wait(5)
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -2804,7 +2805,7 @@ local function startScript()
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local players = game.Players:GetChildren()
 			if #players > 1 then 
-				local random = math.rad(0,15)
+				local random = math.rad(0,10)
 				wait(random)
 				local players = game.Players:GetChildren()
 				if #players > 1 then 
