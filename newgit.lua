@@ -655,7 +655,8 @@ local function kill(method,npc)
 			}
 			game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			wait(1.15)
-end)
+			end)
+			wait(1.2)
 		end
 	elseif method == "NpcBar" then
 		if inform == true then
