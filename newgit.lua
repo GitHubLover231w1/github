@@ -1230,6 +1230,15 @@ local function killthink()
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 10,cframe.Z)
 	end
+	if waitingcount == 4 then 
+		workspace.Gravity = 192.6
+		local baseparts = workspace:GetDescendants()
+		for i,basepart in baseparts do 
+			if basepart:IsA("BasePart") then 
+basepart.CanCollide = false
+			end
+		end
+	end
 	local player = game.Players.LocalPlayer
 	local name = player.Name
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -2987,7 +2996,7 @@ local function startScript()
 				wait(1)
 				tablecount += 1
 				functionlauncer()
-			elseif tablecount == 47 then
+			elseif tablecount == 47 or tablecount == 27 or tablecount == 39 then
 				tablecount += 1
 				functionlauncer()
 			elseif tablecount == 49 then 
