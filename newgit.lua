@@ -297,6 +297,62 @@ end
 local function kill(method,npc)
 	if method == nil then 
 	elseif method == "Npc" then
+		if inform == true then
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			geppoextra()
+			task.spawn(function()
+				if blacklegcount < 40 then 
+					blacklegcount += 1
+				else 
+					local args = {
+						[1] = {
+							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
+						}
+					}
+
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
+			wait(0.025)
+			task.spawn(function()
+				local args = {
+					[1] = true,
+					[2] = "BlackLeg",
+					[3] = true
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			end)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 1,
+						[4] = "Ground",
+						[5] = true,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.Dash,
+						[7] = 0.9833333492279053,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+		else
 		if buddhacount == 0 then 
 			local args = {
 				[1] = false,
@@ -325,7 +381,8 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end
 			end)
-			wait(1.2)		
+				wait(1.2)	
+			
 		elseif buddhacount == 12 then
 
 			local args = {
@@ -475,7 +532,8 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end
 			end)
-			wait(1.2)		
+				wait(1.2)
+		end
 		end
 	elseif method == "Boss" then
 		local args = {
@@ -1018,7 +1076,6 @@ local function killdecide(killthink)
 
 							game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 						buddhaarrived = true
-						method = "NpcBar"
 							wait(4)
 							print("Not Enough Damage!")
 
