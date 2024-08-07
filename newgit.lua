@@ -1215,6 +1215,33 @@ local function killthink()
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 10,cframe.Z)
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
+		if inform == true then
+			task.spawn(function()
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local args = {
+					[1] = "Buddha Transformation",
+					[2] = {
+						[1] = false,
+						[2] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				buddhaarrived = true
+				wait(4)
+			end)
+			wait(1)
+		end
 	elseif waitingcount == 40 then 
 		workspace.Gravity = 192.6
 		local player = game.Players.LocalPlayer
@@ -1223,6 +1250,33 @@ local function killthink()
 		local humanoid = character:WaitForChild("Humanoid")
 		local humrt = character:WaitForChild("HumanoidRootPart")
 		humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 10,cframe.Z)
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
+		if inform == true then
+			task.spawn(function()
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local args = {
+					[1] = "Buddha Transformation",
+					[2] = {
+						[1] = false,
+						[2] = humrt.CFrame
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+				buddhaarrived = true
+				wait(4)
+			end)
+			wait(1)
+		end
 	end
 	local player = game.Players.LocalPlayer
 	local name = player.Name
@@ -1382,33 +1436,6 @@ local function spotcheckerSpecial(tp)
 	checks()
 end
 local function teleportkill(cframe1)
-	local player = game.Players.LocalPlayer
-	local name = player.Name
-	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-	local humanoid = character:WaitForChild("Humanoid")
-	local humrt = character:WaitForChild("HumanoidRootPart")
-	inform =character:GetAttribute("InForm")
-	if inform == true then
-		task.spawn(function()
-			local player = game.Players.LocalPlayer
-			local name = player.Name
-			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-			local humanoid = character:WaitForChild("Humanoid")
-			local humrt = character:WaitForChild("HumanoidRootPart")
-			local args = {
-				[1] = "Buddha Transformation",
-				[2] = {
-					[1] = false,
-					[2] = humrt.CFrame
-				}
-			}
-
-			game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-			buddhaarrived = true
-			wait(4)
-		end)
-		wait(1)
-	end
 	cframe = cframe1
 	geppo1()
 	local player = game.Players.LocalPlayer
