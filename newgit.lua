@@ -680,6 +680,7 @@ local function kill(method,npc)
 				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
 			wait(0.15)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -697,6 +698,7 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 			wait(0.15)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -714,6 +716,7 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 			wait(0.15)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -731,6 +734,7 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 			wait(0.15)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			task.spawn(function()
 				local args = {
 					[1] = {
@@ -748,6 +752,7 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))	
 			end)
 			wait(0.15)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 		else
 			if buddhacount == 0 then 
 				local args = {
