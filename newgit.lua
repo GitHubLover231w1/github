@@ -886,44 +886,6 @@ local function killdecide(killthink)
 				end)
 				wait(0.5)
 			end
-
-		elseif npc.Name == "Head Jailer of Impel Down" then 
-			local player = game.Players.LocalPlayer
-			local name = player.Name
-			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-			local humanoid = character:WaitForChild("Humanoid")
-			local humrt = character:WaitForChild("HumanoidRootPart")
-			method = "Boss"
-			higher = 300
-
-			local player = game.Players.LocalPlayer
-			local name = player.Name
-			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-			local humanoid = character:WaitForChild("Humanoid")
-			local humrt = character:WaitForChild("HumanoidRootPart")
-			inform = character:GetAttribute("InForm")
-			if inform == true then
-				task.spawn(function()
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local args = {
-						[1] = "Buddha Transformation",
-						[2] = {
-							[1] = false,
-							[2] = humrt.CFrame
-						}
-					}
-
-					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-					buddhaarrived = true
-					wait(4)
-				end)
-				wait(0.5)
-			end
-
 		elseif npc.Name == "Vera" then
 			method = "Clicks"
 		elseif npc.Name == "Kelvin, The Nutcracker" then
@@ -963,7 +925,7 @@ local function killdecide(killthink)
 				wait(0.5)
 			end
 
-		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" then 
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -978,7 +940,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1500 then
+				if buddhadamage > 1780 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -986,7 +948,7 @@ local function killdecide(killthink)
 						local humanoid = character:WaitForChild("Humanoid")
 						local humrt = character:WaitForChild("HumanoidRootPart")
 						workspace.Gravity = 0
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 40,cframe.Z)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 
 						local args = {
 							[1] = false,
@@ -1009,7 +971,7 @@ local function killdecide(killthink)
 						print("Not Enough Damage!")
 
 					end)
-					wait(5.5)
+					wait(6)
 				end
 			end
 		else 
@@ -1027,8 +989,43 @@ local function killdecide(killthink)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			inform = character:GetAttribute("InForm")
 			if inform == true then
-				task.spawn(function()
-					
+				
+					local buddhadamage = character:GetAttribute("buddhaDamage")
+					if buddhadamage > 1780 then
+						task.spawn(function()	
+							local player = game.Players.LocalPlayer
+							local name = player.Name
+							local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+							local humanoid = character:WaitForChild("Humanoid")
+							local humrt = character:WaitForChild("HumanoidRootPart")
+							workspace.Gravity = 0
+							humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+
+							local args = {
+								[1] = false,
+								[2] = "BlackLeg"
+							}
+
+							game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+							wait(1)
+							local args = {
+								[1] = "Buddha Transformation",
+								[2] = {
+									[1] = true,
+									[2] = humrt.CFrame
+								}
+							}
+
+							game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						method = "NpcBar"
+							wait(4)
+							print("Not Enough Damage!")
+
+						end)
+						wait(6)
+					elseif buddhadamage < 1450 then
+					task.spawn(function()	
 					local player = game.Players.LocalPlayer
 					local name = player.Name
 					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1045,9 +1042,9 @@ local function killdecide(killthink)
 					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 					buddhaarrived = true
 						wait(4)
-					
-				end)
-				wait(0.5)
+					end)
+					wait(1)
+					end
 			end
 		end
 
