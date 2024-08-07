@@ -369,7 +369,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 			task.spawn(function()
 				local buddhaDamage = character:GetAttribute("buddhaDamage") 
 				if buddhaDamage < 1500 then 
@@ -493,7 +493,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 			task.spawn(function()
 				local buddhaDamage = character:GetAttribute("buddhaDamage") 
 
@@ -520,7 +520,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 			task.spawn(function()
 				local buddhaDamage = character:GetAttribute("buddhaDamage") 
 				if buddhaDamage < 1500 then 
@@ -998,7 +998,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1780 then
+				if buddhadamage > 4450 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1033,7 +1033,7 @@ local function killdecide(killthink)
 				end
 			end
 		else 
-			method = "NpcBar"
+			method = "Npc"
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
