@@ -1414,8 +1414,7 @@ local function teleportkill(cframe1)
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 	local humanoid = character:WaitForChild("Humanoid")
 	local humrt = character:WaitForChild("HumanoidRootPart")
-	humrt.CFrame = CFrame.new(cframe.X,cframe.Y+15,cframe.Z)
-	workspace.Gravity = 192.6
+	humrt.CFrame = CFrame.new(cframe.X,cframe.Y+5,cframe.Z)
 	killthink()
 	tweeningyet = 1
 	killedyet = 0
