@@ -1111,37 +1111,6 @@ local function killdecide(killthink)
 					wait(6)
 				end
 			end
-			if inform == true then
-				if requireddamagecount == 0 then 
-					requireddamage = 1440
-				elseif requireddamagecount == 1 then 
-					requireddamage = 1780
-				end
-					local buddhadamage = character:GetAttribute("buddhaDamage")
-					if buddhadamage < 1440 then
-					task.spawn(function()	
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local args = {
-						[1] = "Buddha Transformation",
-						[2] = {
-							[1] = false,
-							[2] = humrt.CFrame
-						}
-					}
-
-					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-					buddhaarrived = true
-						wait(4)
-					end)
-					wait(1)
-				else 
-					requireddamagecount = 1
-					end
-			end
 		end
 
 
