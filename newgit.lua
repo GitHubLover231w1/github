@@ -324,6 +324,7 @@ local function kill(method,npc)
 			end)
 			wait(1.2)		
 		elseif buddhacount == 12 then
+			
 			local args = {
 				[1] = false,
 				[2] = "BlackLeg"
@@ -339,6 +340,17 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			task.spawn(function()
+				local buddhaDamage = character:GetAttribute("buddhaDamage") 
+				if buddhaDamage < 1500 then 
+
+				else 
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
 			wait(0.6)
@@ -375,6 +387,17 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			task.spawn(function()
+				local buddhaDamage = character:GetAttribute("buddhaDamage") 
+				if buddhaDamage < 1500 then 
+
+				else 
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
 			wait(0.6)
