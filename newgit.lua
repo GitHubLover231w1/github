@@ -998,7 +998,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 4450 then
+				if buddhadamage > 1450 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1014,7 +1014,14 @@ local function killdecide(killthink)
 						}
 
 						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-						wait(1)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						local args = {
 							[1] = "Buddha Transformation",
 							[2] = {
@@ -1025,7 +1032,38 @@ local function killdecide(killthink)
 
 						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
 						buddhaarrived = true
-						wait(4)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						print("Not Enough Damage!")
 
 					end)
@@ -2949,7 +2987,7 @@ local function startScript()
 				wait(1)
 				tablecount += 1
 				functionlauncer()
-			elseif tablecount == 47 or tablecount == 27 or tablecount == 39 then
+			elseif tablecount == 47 or tablecount == 39 then
 				tablecount += 1
 				functionlauncer()
 			elseif tablecount == 49 then 
