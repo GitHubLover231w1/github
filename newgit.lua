@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.42-----
+-----SCRIPT-VERSION-1.43-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -2915,7 +2915,13 @@ local function startScript()
 				wait(20)
 				functionlauncer()
 			elseif tablecount == 48 then
-				teleportE(tableofspots[tablecount])
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				humrt.CFrame = tableofspots[tablecount]
+				wait(1)
 				tablecount += 1
 				functionlauncer()
 			elseif tablecount == 47 then
