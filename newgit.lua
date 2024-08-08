@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.727-----
+-----SCRIPT-VERSION-1.728-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -1427,7 +1427,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1500 then
+				if buddhadamage > 1600 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1510,7 +1510,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1500 then
+				if buddhadamage > 1600 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
