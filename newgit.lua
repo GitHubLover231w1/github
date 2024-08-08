@@ -142,7 +142,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 18 then
+		if djextra < 30 then
 			djextra += 1
 		else
 			djextra = 0
