@@ -296,6 +296,62 @@ end
 local function stack2()
 
 end
+local function impelchecker2()
+	local player = game.Players.LocalPlayer
+	local name = player.Name
+	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+	local humrt = character.HumanoidRootPart
+	local cframe = CFrame.new(5971,7,-10139)
+	local startx = cframe.X
+	local starty = cframe.Y 
+	local startz = cframe.Z
+	local numberrangex =NumberRange.new(startx - 300,startx + 300)
+	local numberrangey =NumberRange.new(starty - 300,starty + 300)
+	local numberrangez =NumberRange.new(startz - 300,startz + 300)
+	local currentx = humrt.CFrame.X
+	local currenty = humrt.CFrame.Y
+	local currentz = humrt.CFrame.Z
+	local checkerx = 0 
+	local checkery = 0
+	local checkerz = 0
+	local function checks() 
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humrt = character.HumanoidRootPart
+		local currentx = humrt.CFrame.X
+		local currenty = humrt.CFrame.Y
+		local currentz = humrt.CFrame.Z
+		if currentx < numberrangex.Min or currentx > numberrangex.Max then 
+
+
+		else 
+			checkerx = 1
+		end
+		if currenty < numberrangey.Min or currenty > numberrangey.Max then 
+
+
+		else 
+			checkery = 1
+		end
+		if currentz < numberrangez.Min or currentz > numberrangez.Max then 
+
+
+		else 
+			checkerz = 1
+		end
+		if checkerx == 1 and checkery == 1 and checkerz == 1 then 
+			startbegin = 1
+			waitforstart = 3
+		else
+
+			wait(1)
+
+
+		end
+	end
+	checks()
+end
 local function kill(method,npc)
 	if method == nil then 
 	elseif method == "Npc" then
@@ -2750,6 +2806,7 @@ local function startimpelchecker()
 			stackleg()
 			stackleg()
 			stackleg()
+			speed = changingspeed
 			tweenforposition(cframe)
 			wait(1)
 			local args = {
