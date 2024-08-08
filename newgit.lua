@@ -3474,9 +3474,8 @@ local function startScript()
 					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 					local humanoid = character:WaitForChild("Humanoid")
 					local humrt = character:WaitForChild("HumanoidRootPart")
-					local grounded = character:GetAttribute("Grounded")
-					grounded = false
-						wait(1.25)
+				    character:SetAttribute("Grounded",false)
+						wait(1)
 					until true == false
 				end)
 				inform = character:GetAttribute("InForm")
