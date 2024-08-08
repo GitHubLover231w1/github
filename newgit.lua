@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.58-----
+-----SCRIPT-VERSION-1.59-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -975,43 +975,7 @@ local function killdecide(killthink)
 
 	else 
 		local method = nil
-		if npc.Name == "Love Empress" then
-			local player = game.Players.LocalPlayer
-			local name = player.Name
-			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-			local humanoid = character:WaitForChild("Humanoid")
-			local humrt = character:WaitForChild("HumanoidRootPart")
-			method = "Boss"
-			higher = 650
-
-			local player = game.Players.LocalPlayer
-			local name = player.Name
-			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-			local humanoid = character:WaitForChild("Humanoid")
-			local humrt = character:WaitForChild("HumanoidRootPart")
-			inform = character:GetAttribute("InForm")
-			if inform == true then
-				task.spawn(function()
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local args = {
-						[1] = "Buddha Transformation",
-						[2] = {
-							[1] =false,
-							[2] = humrt.CFrame
-						}
-					}
-
-					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-					buddhaarrived = true
-					wait(4)
-				end)
-				wait(0.5)
-			end
-		elseif npc.Name == "Vera" then
+		if npc.Name == "Vera" then
 			method = "Clicks"
 		elseif npc.Name == "Kelvin, The Nutcracker" then
 			local player = game.Players.LocalPlayer
@@ -1050,7 +1014,7 @@ local function killdecide(killthink)
 				wait(0.5)
 			end
 
-		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" then 
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
