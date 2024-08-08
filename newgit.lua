@@ -928,6 +928,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				geppo1()
 				task.spawn(function()
+					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
 					local args = {
 						[1] = {
 							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
@@ -1217,6 +1218,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				geppo1()
 				task.spawn(function()
+					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
 					local args = {
 						[1] = {
 							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
