@@ -993,7 +993,7 @@ local function kill(method,npc)
 					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
 				end)
 				local function anchor()
-					wait(0.1)	
+					wait(0.4)	
 					local player = game.Players.LocalPlayer
 					local name = player.Name
 					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
