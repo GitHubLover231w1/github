@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.724-----
+-----SCRIPT-VERSION-1.726-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -2154,18 +2154,29 @@ local function learnblackleg()
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 end
 local function statsup()
+	if nightmare == 0 then
 	local fun1 = "Defense"
 	local fun2 = nil
-	local fun3 = 250
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
-	local fun1 = "Stamina"
-	local fun2 = nil
-	local fun3 = 50
+	local fun3 = 300
 	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
 	local fun1 = "DevilFruitMastery"
 	local fun2 = nil
 	local fun3 = valuefruit - 300
-	game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	else
+		local fun1 = "Defense"
+		local fun2 = nil
+		local fun3 = 200
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		local fun1 = "Stamina"
+		local fun2 = nil
+		local fun3 = 150
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+		local fun1 = "DevilFruitMastery"
+		local fun2 = nil
+		local fun3 = valuefruit - 350
+		game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("stats"):FireServer(fun1,fun2,fun3)
+	end
 end
 local function teleportESpecial(cframe1)
 	cframe = cframe1
@@ -2247,7 +2258,7 @@ local function keypickup()
 	end
 end
 local function diffucultchecker()
-	local function equip()
+	local function equip() 
 		local player = game.Players.LocalPlayer
 		local name = player.Name
 		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
