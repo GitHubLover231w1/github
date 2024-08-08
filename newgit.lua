@@ -1307,7 +1307,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1780 then
+				if buddhadamage > 1500 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1390,7 +1390,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1780 then
+				if buddhadamage > 1500 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
