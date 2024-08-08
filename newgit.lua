@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.71-----
+-----SCRIPT-VERSION-1.72-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -789,6 +789,16 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X+30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z+30))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X-30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z-30))
+			end)
+			task.spawn(function()
 				if blacklegcount < 40 then 
 					blacklegcount += 1
 				else 
@@ -832,6 +842,16 @@ local function kill(method,npc)
 				}
 
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+			task.spawn(function()
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X+30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z+30))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X-30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z-30))
 			end)
 		else
 			local function bomudash()
@@ -1099,6 +1119,16 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end
 			end)
+			task.spawn(function()
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X+30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z+30))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X-30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z-30))
+			end)
 			wait(0.025)
 			task.spawn(function()
 				local args = {
@@ -1125,6 +1155,16 @@ local function kill(method,npc)
 				}
 
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+			task.spawn(function()
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X+30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z+30))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X-30,humrt.Position.Y,humrt.Position.Z))
+				wait(0.00625)
+				humrt.CFrame = CFrame.new(humrt.Position,Vector3.new(humrt.Position.X,humrt.Position.Y,humrt.Position.Z-30))
 			end)
 		else
 			local function bomudash()
