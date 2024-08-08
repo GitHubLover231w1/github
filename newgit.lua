@@ -967,7 +967,12 @@ local function kill(method,npc)
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-
+				task.spawn(function()
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end)
 				wait(1.2)
 			end
 		end
