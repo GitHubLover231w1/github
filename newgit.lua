@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.728-----
+-----SCRIPT-VERSION-1.729-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -427,7 +427,7 @@ local function kill(method,npc)
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			local higher = 0
-			if humanoid.Health < 600 then 
+			if humanoid.Health < 850 then 
 				higher = 350
 			else 
 				higher = 30
