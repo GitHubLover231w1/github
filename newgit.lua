@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.64-----
+-----SCRIPT-VERSION-1.65-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -433,8 +433,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhaDamage > 1700 then
+				
 				task.spawn(function()
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 	
@@ -444,13 +443,6 @@ local function kill(method,npc)
 						game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 					
 					end)
-					end
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-				end)
 				wait(1.05)
 			
 		elseif buddhacount == 12 then
@@ -493,14 +485,10 @@ local function kill(method,npc)
 					[1] = CFrame.new(humrt.Position,npchumrt.Position)
 				}
 
-				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
+					wait(0.75)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 			end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-				end)
 				wait(1.05)
 		elseif buddhacount == 6 then
 			local args = {
@@ -540,14 +528,11 @@ local function kill(method,npc)
 				local args = {
 					[1] = npchumrt.CFrame
 				}
-				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
+					wait(0.75)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 			end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-				end)
+				
 				wait(1.05)
 		elseif buddhacount < 6 then
 			local args = {
@@ -572,12 +557,7 @@ local function kill(method,npc)
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-				end)
+				
 				wait(1.05)
 		else 
 			local args = {
@@ -595,8 +575,7 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhaDamage > 1700 then
+				
 					task.spawn(function()
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 
@@ -606,13 +585,6 @@ local function kill(method,npc)
 						game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
 					end)
-				end
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-				end)
 				wait(1.05)
 				
 		end
@@ -885,12 +857,6 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
 				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-				end)
 				wait(1.05)
 			elseif buddhacount == 12 then
 
@@ -933,13 +899,10 @@ local function kill(method,npc)
 					}
 
 					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
-				end)
-				task.spawn(function()
 					wait(0.75)	
 					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
+				
 				wait(1.05)
 			elseif buddhacount == 6 then
 				local args = {
@@ -980,13 +943,10 @@ local function kill(method,npc)
 						[1] = npchumrt.CFrame
 					}
 					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
-				end)
-				task.spawn(function()
 					wait(0.75)	
 					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
+				
 				wait(1.05)
 			elseif buddhacount < 6 then
 				local args = {
@@ -1012,12 +972,7 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
 				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-				end)
+				
 				wait(1.05)
 			else 
 				local args = {
@@ -1043,12 +998,6 @@ local function kill(method,npc)
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
-				end)
-				task.spawn(function()
-					wait(0.5)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
-					wait(0.5)	
-					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
 				wait(1.05)
 
@@ -1143,12 +1092,7 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
 				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-				end)
+				
 				wait(1.05)
 
 			elseif buddhacount == 12 then
@@ -1192,13 +1136,10 @@ local function kill(method,npc)
 					}
 
 					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
-				end)
-				task.spawn(function()
 					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
+				
 				wait(1.05)
 			elseif buddhacount == 6 then
 				local args = {
@@ -1239,13 +1180,10 @@ local function kill(method,npc)
 						[1] = npchumrt.CFrame
 					}
 					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
-				end)
-				task.spawn(function()
 					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
+				
 				wait(1.05)
 			elseif buddhacount < 6 then
 				local args = {
@@ -1269,12 +1207,6 @@ local function kill(method,npc)
 						[1] = npchumrt.CFrame
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
 				end)
 				wait(1.05)
 			else 
@@ -1302,12 +1234,7 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 
 				end)
-				task.spawn(function()
-					wait(0.75)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					wait(0.25)	
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-				end)
+				
 				wait(1.05)
 
 			end
@@ -1380,7 +1307,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1450 then
+				if buddhadamage > 1780 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
@@ -1463,7 +1390,7 @@ local function killdecide(killthink)
 			inform = character:GetAttribute("InForm")
 			if inform == false then
 				local buddhadamage = character:GetAttribute("buddhaDamage")
-				if buddhadamage > 1450 then
+				if buddhadamage > 1780 then
 					task.spawn(function()	
 						local player = game.Players.LocalPlayer
 						local name = player.Name
