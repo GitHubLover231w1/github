@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.60-----
+-----SCRIPT-VERSION-1.61-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -140,7 +140,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 30 then
+		if djextra < 15 then
 			djextra += 1
 		else
 			djextra = 0
