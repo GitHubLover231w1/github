@@ -832,7 +832,7 @@ local function kill(method,npc)
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				task.spawn(function()
 					local args = {
 						[1] = npchumrt.CFrame
@@ -942,7 +942,7 @@ local function kill(method,npc)
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				task.spawn(function()
 					local args = {
 						[1] = npchumrt.CFrame
@@ -966,7 +966,7 @@ local function kill(method,npc)
 				local humrt = character:WaitForChild("HumanoidRootPart")
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				task.spawn(function()
 					local args = {
 						[1] = npchumrt.CFrame
