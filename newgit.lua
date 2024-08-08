@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.722-----
+-----SCRIPT-VERSION-1.723-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -419,6 +419,19 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 		else
+			local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			local higher = 0
+			if humanoid.Health < 600 then 
+				higher = 350
+			else 
+				higher = 30
+			end
 			if buddhacount == 0 then 
 				local args = {
 					[1] = false,
@@ -437,7 +450,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 
 					local args = {
 						[1] = npchumrt.CFrame
@@ -553,7 +566,7 @@ local function kill(method,npc)
 				local npchum = npc:FindFirstChild("Humanoid")
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 					local args = {
 						[1] = npchumrt.CFrame
 					}
@@ -579,7 +592,7 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + higher,cframe.Z)
 
 					local args = {
 						[1] = npchumrt.CFrame
