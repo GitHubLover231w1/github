@@ -1375,7 +1375,7 @@ local function killdecide(killthink)
 					wait(4.5)
 				end
 			end
-		elseif npc.Name == "Ba'al" then 
+		elseif npc.Name == "Ba'al" or npc.Name == "Elo The Bunny" or npc.Name == "Mini Bunny" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
