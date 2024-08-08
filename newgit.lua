@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.723-----
+-----SCRIPT-VERSION-1.724-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -800,7 +800,9 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			end)
 			geppoextra()
 			task.spawn(function()
 				local args = {
@@ -808,7 +810,7 @@ local function kill(method,npc)
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
-			wait(0.0125)
+			task.wait(0.00625)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -1081,7 +1083,9 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			end)
 			geppoextra()
 			task.spawn(function()
 				local args = {
@@ -1089,7 +1093,7 @@ local function kill(method,npc)
 				}
 				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
-			wait(0.0125)
+			task.wait(0.00625)
 			task.spawn(function()
 				local args = {
 					[1] = true,
