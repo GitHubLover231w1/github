@@ -1540,33 +1540,27 @@ local function killdecide(killthink)
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 			local humanoid = character:WaitForChild("Humanoid")
 			local humrt = character:WaitForChild("HumanoidRootPart")
-			inform = character:GetAttribute("InForm")
-			local buddhadamage = character:GetAttribute("buddhaDamage")
+			inform =character:GetAttribute("InForm")
 			if inform == true then
-					task.spawn(function()	
-						local player = game.Players.LocalPlayer
-						local name = player.Name
-						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-						local humanoid = character:WaitForChild("Humanoid")
-						local humrt = character:WaitForChild("HumanoidRootPart")
-						workspace.Gravity = 0
-						local args = {
+				task.spawn(function()
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local args = {
+						[1] = "Buddha Transformation",
+						[2] = {
 							[1] = false,
-							[2] = "BlackLeg"
+							[2] = humrt.CFrame
 						}
+					}
 
-						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
-						local args = {
-							[1] = "Buddha Transformation",
-							[2] = {
-								[1] = true,
-								[2] = humrt.CFrame
-							}
-						}
-
-						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
-					end)
-				wait(0.5)
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					buddhaarrived = true
+					wait(4)
+				end)
+				wait(1)
 			end
 		end
 
