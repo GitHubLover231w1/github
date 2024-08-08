@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.62-----
+-----SCRIPT-VERSION-1.63-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -1466,6 +1466,774 @@ local function kill(method,npc)
 				end
 				anchor()
 			end
+			
+		end
+	elseif method == "NpcBar1" then
+		local player = game.Players.LocalPlayer
+		local name = player.Name
+		local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+		local humanoid = character:WaitForChild("Humanoid")
+		local humrt = character:WaitForChild("HumanoidRootPart")
+		inform =character:GetAttribute("InForm")
+		if inform == true then
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			local npchum = npc:FindFirstChild("Humanoid")
+			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			geppoextra()
+			task.spawn(function()
+				if blacklegcount < 40 then 
+					blacklegcount += 1
+				else 
+					local args = {
+						[1] = {
+							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
+						}
+					}
+
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end
+			end)
+			wait(0.025)
+			task.spawn(function()
+				local args = {
+					[1] = true,
+					[2] = "BlackLeg",
+					[3] = true
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+			end)
+			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
+			task.spawn(function()
+				local args = {
+					[1] = {
+						[1] = "swingsfx",
+						[2] = "Sword",
+						[3] = 1,
+						[4] = "Ground",
+						[5] = true,
+						[6] = game:GetService("ReplicatedStorage").Modules.SwordHandle.Swords.BuddhaMode.Slashes.Dash,
+						[7] = 0.9833333492279053,
+						[8] = 5
+					}
+				}
+
+				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
+			end)
+		else
+			if buddhacount == 0 then 
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				workspace.Gravity = 0
+				buddhacount = 14
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				task.spawn(function()
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end)
+				local function anchor()
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				end
+				anchor()
+			elseif buddhacount == 12 then
+
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				workspace.Gravity = 0
+				buddhacount -= 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+
+				geppo1()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				geppo1()
+				task.spawn(function()
+					local args = {
+						[1] = "Palm Strike",
+						[2] = {
+							["cf"] = humrt.CFrame
+						}
+					}
+
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					local args = {
+						[1] = CFrame.new(humrt.Position,npchumrt.Position)
+					}
+
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
+				end)
+				local function anchor()
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				end
+				anchor()
+			elseif buddhacount == 6 then
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				workspace.Gravity = 0
+				buddhacount -= 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				geppo1()
+				humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				geppo1()
+				task.spawn(function()
+					local args = {
+						[1] = "Judgement Impact",
+						[2] = {
+							["cf"] = humrt.CFrame
+						}
+					}
+
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
+				end)
+				local function anchor()
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				end
+				anchor()
+			elseif buddhacount == 4 or buddhacount == 8 then
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				workspace.Gravity = 0
+				buddhacount -= 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				task.spawn(function()
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end)
+				local function anchor()
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				end
+				anchor()
+			else 
+				local args = {
+					[1] = false,
+					[2] = "BlackLeg"
+				}
+
+				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+				workspace.Gravity = 0
+				buddhacount -= 1
+				local player = game.Players.LocalPlayer
+				local name = player.Name
+				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+				local humanoid = character:WaitForChild("Humanoid")
+				local humrt = character:WaitForChild("HumanoidRootPart")
+				local npchum = npc:FindFirstChild("Humanoid")
+				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+				humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				task.spawn(function()
+					local args = {
+						[1] = npchumrt.CFrame
+					}
+					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+				end)
+				local function anchor()
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+					wait(0.1)	
+					local player = game.Players.LocalPlayer
+					local name = player.Name
+					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+					local humanoid = character:WaitForChild("Humanoid")
+					local humrt = character:WaitForChild("HumanoidRootPart")
+					local npchum = npc:FindFirstChild("Humanoid")
+					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
+					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 35,cframe.Z)
+				end
+				anchor()
+			end
 		end
 	end
 end
@@ -1519,7 +2287,7 @@ local function killdecide(killthink)
 				wait(0.5)
 			end
 
-		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1554,10 +2322,6 @@ local function killdecide(killthink)
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						wait(0.25)
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-						wait(0.25)
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-						wait(0.25)
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						local args = {
 							[1] = "Buddha Transformation",
 							[2] = {
@@ -1603,7 +2367,90 @@ local function killdecide(killthink)
 						print("Not Enough Damage!")
 
 					end)
-					wait(6)
+					wait(4.5)
+				end
+			end
+		elseif npc.Name == "Ba'al" then 
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			method = "NpcBar1"
+			local player = game.Players.LocalPlayer
+			local name = player.Name
+			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+			local humanoid = character:WaitForChild("Humanoid")
+			local humrt = character:WaitForChild("HumanoidRootPart")
+			inform = character:GetAttribute("InForm")
+			if inform == false then
+				local buddhadamage = character:GetAttribute("buddhaDamage")
+				if buddhadamage > 1450 then
+					task.spawn(function()	
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						workspace.Gravity = 0
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+
+						local args = {
+							[1] = false,
+							[2] = "BlackLeg"
+						}
+
+						game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = true,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						wait(0.25)
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
+						print("Not Enough Damage!")
+
+					end)
+					wait(4.5)
 				end
 			end
 		else 
@@ -1613,7 +2460,6 @@ local function killdecide(killthink)
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 			local humanoid = character:WaitForChild("Humanoid")
 			local humrt = character:WaitForChild("HumanoidRootPart")
-
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -1647,10 +2493,6 @@ local function killdecide(killthink)
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						wait(0.25)
 						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-						wait(0.25)
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-						wait(0.25)
-						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
 						local args = {
 							[1] = "Buddha Transformation",
 							[2] = {
@@ -1696,7 +2538,7 @@ local function killdecide(killthink)
 						print("Not Enough Damage!")
 
 					end)
-					wait(6)
+					wait(4.5)
 				else 
 					requireddamagecount = 1
 				end
