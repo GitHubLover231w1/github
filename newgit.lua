@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.721-----
+-----SCRIPT-VERSION-1.722-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -790,22 +790,10 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 80 then 
-					blacklegcount += 1
-				else 
-					local args = {
-						[1] = {
-							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
-							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
-						}
-					}
-
-					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
-					local args = {
+				local args = {
 						[1] = npchumrt.CFrame
 					}
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
 			end)
 			wait(0.0125)
 			task.spawn(function()
@@ -1083,22 +1071,10 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 80 then 
-					blacklegcount += 1
-				else 
-					local args = {
-						[1] = {
-							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
-							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
-						}
-					}
-
-					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
-					local args = {
-						[1] = npchumrt.CFrame
-					}
-					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-				end
+				local args = {
+					[1] = npchumrt.CFrame
+				}
+				game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 			end)
 			wait(0.0125)
 			task.spawn(function()
