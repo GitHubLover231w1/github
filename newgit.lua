@@ -433,17 +433,18 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-
+				local buddhadamage = character:GetAttribute("buddhaDamage")
+				if buddhaDamage > 1700 then
 				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 30,cframe.Z)
-					local buddhadamage = character:GetAttribute("buddhaDamage")
-					if buddhaDamage > 1700 then
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+	
 					local args = {
 						[1] = npchumrt.CFrame
 					}
 						game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
+					
+					end)
 					end
-			end)
 				task.spawn(function()
 					wait(0.75)	
 					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
@@ -594,16 +595,18 @@ local function kill(method,npc)
 			local humrt = character:WaitForChild("HumanoidRootPart")
 			local npchum = npc:FindFirstChild("Humanoid")
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				task.spawn(function()
-					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
-					local buddhadamage = character:GetAttribute("buddhaDamage")
-					if buddhaDamage > 1780 then
+				local buddhadamage = character:GetAttribute("buddhaDamage")
+				if buddhaDamage > 1700 then
+					task.spawn(function()
+						humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
+
 						local args = {
 							[1] = npchumrt.CFrame
 						}
 						game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
-					end
-				end)
+
+					end)
+				end
 				task.spawn(function()
 					wait(0.75)	
 					humrt.CFrame = CFrame.new(cframe.X,cframe.Y + 300,cframe.Z)
