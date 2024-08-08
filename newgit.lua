@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.72-----
+-----SCRIPT-VERSION-1.721-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -3551,6 +3551,27 @@ local function startScript()
 				height1 = 45
 				teleportkill(tableofspots[tablecount])
 				tablecount += 1
+				if inform == true then
+					task.spawn(function()
+						local player = game.Players.LocalPlayer
+						local name = player.Name
+						local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
+						local humanoid = character:WaitForChild("Humanoid")
+						local humrt = character:WaitForChild("HumanoidRootPart")
+						local args = {
+							[1] = "Buddha Transformation",
+							[2] = {
+								[1] = false,
+								[2] = humrt.CFrame
+							}
+						}
+
+						game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+						buddhaarrived = true
+						wait(4)
+					end)
+					wait(0.5)
+				end
 				wait(20)
 				local OldPoints =  game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("BattleReportGui"):WaitForChild("Points").Text
 				local function setvariables1(webhook1)
