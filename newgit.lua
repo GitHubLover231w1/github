@@ -141,7 +141,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 15 then
+		if djextra < 8 then
 			djextra += 1
 		else
 			djextra = 0
@@ -3463,6 +3463,13 @@ local function startScript()
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
 				local humanoid = character:WaitForChild("Humanoid")
 				local humrt = character:WaitForChild("HumanoidRootPart")
+				local attributes = character:GetAttributes()
+				task.spawn(function()
+				for name, value in attributes do
+					print(name)
+					print(value)
+					end
+				end)
 				character:SetAttribute("InForm",false)
 				character:SetAttribute("buddhaDamage",0)
 				character:SetAttribute("Grounded",false)
