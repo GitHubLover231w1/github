@@ -833,6 +833,51 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 		else
+			local function bomudash()
+				task.spawn(function()
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+				end)
+			end
+			bomudash()
 			if buddhacount == 0 then 
 				local args = {
 					[1] = false,
@@ -859,12 +904,10 @@ local function kill(method,npc)
 				end)
 				wait(1.05)
 			elseif buddhacount == 12 then
-
 				local args = {
 					[1] = false,
 					[2] = "BlackLeg"
 				}
-
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 				workspace.Gravity = 0
 				buddhacount -= 1
@@ -885,6 +928,14 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				geppo1()
 				task.spawn(function()
+					local args = {
+						[1] = {
+							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
+						}
+					}
+
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
 					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
 					local args = {
 						[1] = "Palm Strike",
@@ -902,7 +953,6 @@ local function kill(method,npc)
 					wait(0.75)	
 					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 300,npchumrt.CFrame.Z)
 				end)
-
 				wait(1.05)
 			elseif buddhacount == 6 then
 				local args = {
@@ -1066,6 +1116,51 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.CombatRegister:InvokeServer(unpack(args))
 			end)
 		else
+			local function bomudash()
+				task.spawn(function()
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+					local fun1 = "BombDash"
+					local fun2 = game:GetService("Players").LocalPlayer.Character
+					game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(fun1,fun2)
+					wait(0.01)
+				end)
+			end
+			bomudash()
 			if buddhacount == 0 then 
 				local args = {
 					[1] = false,
@@ -1122,6 +1217,14 @@ local function kill(method,npc)
 				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 				geppo1()
 				task.spawn(function()
+					local args = {
+						[1] = {
+							["cf"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z),
+							["cf2"] = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 5,npchumrt.CFrame.Z)
+						}
+					}
+
+					game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.BlackLeg.Concasser"):InvokeServer(unpack(args))
 					humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
 					local args = {
 						[1] = "Palm Strike",
