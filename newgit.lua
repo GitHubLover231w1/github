@@ -1822,7 +1822,7 @@ local function teleport(cframe1)
 	end
 	cframe = cframe1
 	geppo1()
-	workspace.Gravity = 0
+	workspace.Gravity = 192.6
 	local player = game.Players.LocalPlayer
 	local name = player.Name
 	local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
