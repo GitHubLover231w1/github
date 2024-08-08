@@ -1412,7 +1412,6 @@ local function killdecide(killthink)
 			end
 		elseif npc.Name == "Basilisk" or npc.Name == "Scorpion" then 
 			npc:Destroy()
-			killthink()
 		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" or npc.Name == "Love Empress" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
@@ -1614,9 +1613,11 @@ local function killdecide(killthink)
 				wait(1)
 			end
 		end
-
-
-		kill(method,npc)
+		if method == nil then 
+			
+		else 
+			kill(method,npc)
+		end
 		killthink()
 	end
 end
