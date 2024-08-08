@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.71-----
+-----SCRIPT-VERSION-1.715-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -142,7 +142,7 @@ local function geppo()
 end
 local function geppoextra()
 	task.spawn(function()
-		if djextra < 8 then
+		if djextra < 18 then
 			djextra += 1
 		else
 			djextra = 0
@@ -790,7 +790,7 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 40 then 
+				if blacklegcount < 80 then 
 					blacklegcount += 1
 				else 
 					local args = {
@@ -807,7 +807,7 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end
 			end)
-			wait(0.025)
+			wait(0.0125)
 			task.spawn(function()
 				local args = {
 					[1] = true,
@@ -1126,7 +1126,7 @@ local function kill(method,npc)
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y+30,npchumrt.CFrame.Z)
 			geppoextra()
 			task.spawn(function()
-				if blacklegcount < 40 then 
+				if blacklegcount < 80 then 
 					blacklegcount += 1
 				else 
 					local args = {
@@ -1143,7 +1143,7 @@ local function kill(method,npc)
 					game:GetService("Players").LocalPlayer.Backpack["Buddha-Buddha"].stomp:FireServer(unpack(args))
 				end
 			end)
-			wait(0.025)
+			wait(0.0125)
 			task.spawn(function()
 				local args = {
 					[1] = true,
