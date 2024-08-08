@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.715-----
+-----SCRIPT-VERSION-1.72-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -818,49 +818,6 @@ local function kill(method,npc)
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 			end)
 			task.spawn(function()
-			if rotationchecker == 0 then
-				local player = game.Players.LocalPlayer
-				local name = player.Name
-				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-				local humanoid = character:WaitForChild("Humanoid")
-				local humrt = character:WaitForChild("HumanoidRootPart")
-				local npchum = npc:FindFirstChild("Humanoid")
-				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				rotationchecker +=1
-				humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X+30,npchumrt.Position.Y,npchumrt.Position.Z))
-			elseif rotationchecker == 1 then
-				local player = game.Players.LocalPlayer
-				local name = player.Name
-				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-				local humanoid = character:WaitForChild("Humanoid")
-				local humrt = character:WaitForChild("HumanoidRootPart")
-				local npchum = npc:FindFirstChild("Humanoid")
-				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				rotationchecker +=1
-				humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X,npchumrt.Position.Y,npchumrt.Position.Z+30))
-			elseif rotationchecker == 2 then 
-				local player = game.Players.LocalPlayer
-				local name = player.Name
-				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-				local humanoid = character:WaitForChild("Humanoid")
-				local humrt = character:WaitForChild("HumanoidRootPart")
-				local npchum = npc:FindFirstChild("Humanoid")
-				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				rotationchecker +=1
-				humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X-30,npchumrt.Position.Y,npchumrt.Position.Z))
-			elseif rotationchecker == 3 then 
-				local player = game.Players.LocalPlayer
-				local name = player.Name
-				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-				local humanoid = character:WaitForChild("Humanoid")
-				local humrt = character:WaitForChild("HumanoidRootPart")
-				local npchum = npc:FindFirstChild("Humanoid")
-				local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-				rotationchecker = 0
-				humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X,npchumrt.Position.Y,npchumrt.Position.Z-30))
-				end
-			end)
-			task.spawn(function()
 				local args = {
 					[1] = {
 						[1] = "swingsfx",
@@ -1153,49 +1110,7 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage").Events.Block:InvokeServer(unpack(args))
 			end)
-			task.spawn(function()
-				if rotationchecker == 0 then
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local npchum = npc:FindFirstChild("Humanoid")
-					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-					rotationchecker +=1
-					humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X+30,npchumrt.Position.Y,npchumrt.Position.Z))
-				elseif rotationchecker == 1 then
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local npchum = npc:FindFirstChild("Humanoid")
-					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-					rotationchecker +=1
-					humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X,npchumrt.Position.Y,npchumrt.Position.Z+30))
-				elseif rotationchecker == 2 then 
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local npchum = npc:FindFirstChild("Humanoid")
-					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-					rotationchecker +=1
-					humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X-30,npchumrt.Position.Y,npchumrt.Position.Z))
-				elseif rotationchecker == 3 then 
-					local player = game.Players.LocalPlayer
-					local name = player.Name
-					local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
-					local humanoid = character:WaitForChild("Humanoid")
-					local humrt = character:WaitForChild("HumanoidRootPart")
-					local npchum = npc:FindFirstChild("Humanoid")
-					local npchumrt = npc:FindFirstChild("HumanoidRootPart")
-					rotationchecker = 0
-					humrt.CFrame = CFrame.new(npchumrt.Position.X,npchumrt.Position.Y+30,npchumrt.Position.Z,Vector3.new(npchumrt.Position.X,npchumrt.Position.Y,npchumrt.Position.Z-30))
-				end
-			end)
+			
 			task.spawn(function()
 				local args = {
 					[1] = {
