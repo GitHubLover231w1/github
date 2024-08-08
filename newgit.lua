@@ -1014,7 +1014,7 @@ local function killdecide(killthink)
 				wait(0.5)
 			end
 
-		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" then 
+		elseif npc.Name == "Cupid Queen" or npc.Name == "Santa" or npc.Name == "Kramprus" or npc.Name == "Blugori" or npc.Name == "Demon Jester" or npc.Name == "Ba'al" or npc.Name == "Warden of Impel Down, Vera" or npc.Name == "Jailer Han" or npc.Name == "Impel Down Elite High Guard" or npc.Name == "Basilisk" or npc.Name == "Scorpion" or npc.Name == "Head Jailer of Impel Down" or npc.Name == "Sphinx" then 
 			local player = game.Players.LocalPlayer
 			local name = player.Name
 			local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
