@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.56-----
+-----SCRIPT-VERSION-1.57-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -462,7 +462,6 @@ local function kill(method,npc)
 		
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 20,npchumrt.CFrame.Z)
-				wait(0.6)
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -486,7 +485,7 @@ local function kill(method,npc)
 
 				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Palm Strike.Base"):FireServer(unpack(args))
 			end)
-			wait(0.6)
+			wait(1.2)
 		elseif buddhacount == 6 then
 			local args = {
 				[1] = false,
@@ -505,7 +504,6 @@ local function kill(method,npc)
 			local npchumrt = npc:FindFirstChild("HumanoidRootPart")
 			geppo1()
 			humrt.CFrame = CFrame.new(npchumrt.CFrame.X,npchumrt.CFrame.Y + 35,npchumrt.CFrame.Z)
-				wait(0.6)
 				local player = game.Players.LocalPlayer
 				local name = player.Name
 				local character = workspace:WaitForChild("PlayerCharacters"):WaitForChild(name)
@@ -528,7 +526,7 @@ local function kill(method,npc)
 				}
 				game:GetService("ReplicatedStorage"):FindFirstChild(name.."|ServerScriptService.Skills.Skills.SkillContainer.Buddha-Buddha.Judgement Impact"):FireServer(unpack(args))
 			end)
-			wait(0.6)
+				wait(1.2)
 		elseif buddhacount == 4 or buddhacount == 8 then
 			local args = {
 				[1] = false,
