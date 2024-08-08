@@ -1,4 +1,4 @@
------SCRIPT-VERSION-1.65-----
+-----SCRIPT-VERSION-1.655-----
 local idimpel = 11424731604
 local idmain =  7465136166
 local idlobby = 1730877806
@@ -3244,11 +3244,14 @@ local function startScript()
 
 	elseif game.PlaceId == idmain then
 		wait(15*autoexec)
+		local players = game:GetService("Players"):GetChildren()
+		local random = math.random(10,20)
+		wait(random*#players)
 		startimpelchecker()
 		cframe = CFrame.new(5866,7,-10227)
 		teleportESpecial(cframe)
 		print("DOne")
-		local random = math.random(50,100)
+		local random = math.random(15,25)
 		wait(random)
 		game:GetService("TeleportService"):Teleport(1730877806, player)
 	elseif game.PlaceId == idlevel then 
